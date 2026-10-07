@@ -156,8 +156,8 @@ function renderCardF1(s) {
   const durata = s.durata || 2 * 60 * 60;
 
   return `
+    <div class="f1-sessione">${s.sessione}</div>
     <div class="f1-header">
-      <div class="f1-sessione">${s.sessione}</div>
       <div class="f1-gp">${s.gp}</div>
       <div class="f1-luogo">${s.circuito}${s.localita ? ", " + s.localita : ""}</div>
     </div>
@@ -176,7 +176,6 @@ function renderCardF1(s) {
 // =====================================================
 // COUNTDOWN CON LOGICA "EVENTI IN CORSO"
 // =====================================================
-
 function avviaTuttiCountdown() {
   function tick() {
     const adesso = Date.now();

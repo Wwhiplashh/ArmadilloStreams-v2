@@ -298,3 +298,25 @@ body {
   .card .logo { width: 48px; height: 48px; }
   .countdown-box .countdown { font-size: 1.35rem; }
 }
+/* =====================================================
+   ALLINEAMENTO DATE E COUNTDOWN TRA LE DUE CARD
+   ===================================================== */
+
+/* Card Inter: badge + squadre devono occupare uno spazio fisso */
+.card .competizione {
+  min-height: 22px;
+}
+
+.card .squadre {
+  min-height: 92px;
+}
+
+/* Card F1: l'header deve occupare lo stesso spazio totale
+   della somma (badge + squadre) della card Inter, così
+   data-ora e countdown-box partono alla stessa altezza. */
+.card .f1-header {
+  min-height: 132px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

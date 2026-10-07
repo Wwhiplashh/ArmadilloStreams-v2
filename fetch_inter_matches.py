@@ -98,8 +98,8 @@ def fetch_inter_matches():
 
         home_id = home.get("id")
         away_id = away.get("id")
-        home_logo = f"https://api.sofascore.app/api/v1/team/{home_id}/image" if home_id else ""
-        away_logo = f"https://api.sofascore.app/api/v1/team/{away_id}/image" if away_id else ""
+        home_logo = f"https://img.sofascore.com/api/v1/team/{home_id}/image" if home_id else ""
+        away_logo = f"https://img.sofascore.com/api/v1/team/{away_id}/image" if away_id else ""
 
         partite.append({
             "startTimestamp": timestamp,

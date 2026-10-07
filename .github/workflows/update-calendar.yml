@@ -29,7 +29,7 @@ jobs:
       - name: Genera calendar.json
         env:
           RAPIDAPI_KEY: ${{ secrets.RAPIDAPI_KEY }}
-        run: python scripts/fetch_matches.py
+        run: python fetch_inter_matches.py
 
       - name: Commit e push (se il file è cambiato)
         run: |

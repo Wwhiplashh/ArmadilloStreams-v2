@@ -1,1 +1,1312 @@
-[]
+[
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 1,
+    "gp": "Australian Grand Prix",
+    "circuito": "Albert Park Grand Prix Circuit",
+    "localita": "Melbourne",
+    "paese": "Australia",
+    "startTimestamp": 1772859600,
+    "startIso": "2026-03-07T05:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "4"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "7"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 1,
+    "gp": "Australian Grand Prix",
+    "circuito": "Albert Park Grand Prix Circuit",
+    "localita": "Melbourne",
+    "paese": "Australia",
+    "startTimestamp": 1772942400,
+    "startIso": "2026-03-08T04:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "3"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "4"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Sprint",
+    "codiceSessione": "SPRINT",
+    "round": 2,
+    "gp": "Chinese Grand Prix",
+    "circuito": "Shanghai International Circuit",
+    "localita": "Shanghai",
+    "paese": "China",
+    "startTimestamp": 1773457200,
+    "startIso": "2026-03-14T03:00:00+00:00",
+    "durata": 3600,
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "2"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "3"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 2,
+    "gp": "Chinese Grand Prix",
+    "circuito": "Shanghai International Circuit",
+    "localita": "Shanghai",
+    "paese": "China",
+    "startTimestamp": 1773471600,
+    "startIso": "2026-03-14T07:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "3"
+      },
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "4"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 2,
+    "gp": "Chinese Grand Prix",
+    "circuito": "Shanghai International Circuit",
+    "localita": "Shanghai",
+    "paese": "China",
+    "startTimestamp": 1773558000,
+    "startIso": "2026-03-15T07:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "3"
+      },
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "4"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 3,
+    "gp": "Japanese Grand Prix",
+    "circuito": "Suzuka Circuit",
+    "localita": "Suzuka",
+    "paese": "Japan",
+    "startTimestamp": 1774677600,
+    "startIso": "2026-03-28T06:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "4"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "6"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 3,
+    "gp": "Japanese Grand Prix",
+    "circuito": "Suzuka Circuit",
+    "localita": "Suzuka",
+    "paese": "Japan",
+    "startTimestamp": 1774760400,
+    "startIso": "2026-03-29T05:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "3"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "6"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Sprint",
+    "codiceSessione": "SPRINT",
+    "round": 4,
+    "gp": "Miami Grand Prix",
+    "circuito": "Miami International Autodrome",
+    "localita": "Miami",
+    "paese": "USA",
+    "startTimestamp": 1777737600,
+    "startIso": "2026-05-02T16:00:00+00:00",
+    "durata": 3600,
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "3"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "7"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 4,
+    "gp": "Miami Grand Prix",
+    "circuito": "Miami International Autodrome",
+    "localita": "Miami",
+    "paese": "USA",
+    "startTimestamp": 1777752000,
+    "startIso": "2026-05-02T20:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "3"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "6"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 4,
+    "gp": "Miami Grand Prix",
+    "circuito": "Miami International Autodrome",
+    "localita": "Miami",
+    "paese": "USA",
+    "startTimestamp": 1777838400,
+    "startIso": "2026-05-03T20:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "6"
+      },
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "8"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Sprint",
+    "codiceSessione": "SPRINT",
+    "round": 5,
+    "gp": "Canadian Grand Prix",
+    "circuito": "Circuit Gilles Villeneuve",
+    "localita": "Montreal",
+    "paese": "Canada",
+    "startTimestamp": 1779552000,
+    "startIso": "2026-05-23T16:00:00+00:00",
+    "durata": 3600,
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "5"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "6"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 5,
+    "gp": "Canadian Grand Prix",
+    "circuito": "Circuit Gilles Villeneuve",
+    "localita": "Montreal",
+    "paese": "Canada",
+    "startTimestamp": 1779566400,
+    "startIso": "2026-05-23T20:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "5"
+      },
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "8"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 5,
+    "gp": "Canadian Grand Prix",
+    "circuito": "Circuit Gilles Villeneuve",
+    "localita": "Montreal",
+    "paese": "Canada",
+    "startTimestamp": 1779652800,
+    "startIso": "2026-05-24T20:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "2"
+      },
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "4"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 6,
+    "gp": "Monaco Grand Prix",
+    "circuito": "Circuit de Monaco",
+    "localita": "Monte Carlo",
+    "paese": "Monaco",
+    "startTimestamp": 1780754400,
+    "startIso": "2026-06-06T14:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "3"
+      },
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "4"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 6,
+    "gp": "Monaco Grand Prix",
+    "circuito": "Circuit de Monaco",
+    "localita": "Monte Carlo",
+    "paese": "Monaco",
+    "startTimestamp": 1780837200,
+    "startIso": "2026-06-07T13:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "2"
+      },
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "17"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 7,
+    "gp": "Barcelona Grand Prix",
+    "circuito": "Circuit de Barcelona-Catalunya",
+    "localita": "Barcelona",
+    "paese": "Spain",
+    "startTimestamp": 1781359200,
+    "startIso": "2026-06-13T14:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "2"
+      },
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "10"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 7,
+    "gp": "Barcelona Grand Prix",
+    "circuito": "Circuit de Barcelona-Catalunya",
+    "localita": "Barcelona",
+    "paese": "Spain",
+    "startTimestamp": 1781442000,
+    "startIso": "2026-06-14T13:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "1"
+      },
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "15"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 8,
+    "gp": "Austrian Grand Prix",
+    "circuito": "Red Bull Ring",
+    "localita": "Spielberg",
+    "paese": "Austria",
+    "startTimestamp": 1782568800,
+    "startIso": "2026-06-27T14:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "2"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "3"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 8,
+    "gp": "Austrian Grand Prix",
+    "circuito": "Red Bull Ring",
+    "localita": "Spielberg",
+    "paese": "Austria",
+    "startTimestamp": 1782651600,
+    "startIso": "2026-06-28T13:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "5"
+      },
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "8"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Sprint",
+    "codiceSessione": "SPRINT",
+    "round": 9,
+    "gp": "British Grand Prix",
+    "circuito": "Silverstone Circuit",
+    "localita": "Silverstone",
+    "paese": "UK",
+    "startTimestamp": 1783162800,
+    "startIso": "2026-07-04T11:00:00+00:00",
+    "durata": 3600,
+    "risultatiFerrari": [
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "2"
+      },
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "5"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 9,
+    "gp": "British Grand Prix",
+    "circuito": "Silverstone Circuit",
+    "localita": "Silverstone",
+    "paese": "UK",
+    "startTimestamp": 1783177200,
+    "startIso": "2026-07-04T15:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "2"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "3"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 9,
+    "gp": "British Grand Prix",
+    "circuito": "Silverstone Circuit",
+    "localita": "Silverstone",
+    "paese": "UK",
+    "startTimestamp": 1783260000,
+    "startIso": "2026-07-05T14:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "1"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "3"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 10,
+    "gp": "Belgian Grand Prix",
+    "circuito": "Circuit de Spa-Francorchamps",
+    "localita": "Spa",
+    "paese": "Belgium",
+    "startTimestamp": 1784383200,
+    "startIso": "2026-07-18T14:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "5"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "6"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 10,
+    "gp": "Belgian Grand Prix",
+    "circuito": "Circuit de Spa-Francorchamps",
+    "localita": "Spa",
+    "paese": "Belgium",
+    "startTimestamp": 1784466000,
+    "startIso": "2026-07-19T13:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "2"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "4"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 11,
+    "gp": "Hungarian Grand Prix",
+    "circuito": "Hungaroring",
+    "localita": "Budapest",
+    "paese": "Hungary",
+    "startTimestamp": 1784988000,
+    "startIso": "2026-07-25T14:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "2"
+      },
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "3"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 11,
+    "gp": "Hungarian Grand Prix",
+    "circuito": "Hungaroring",
+    "localita": "Budapest",
+    "paese": "Hungary",
+    "startTimestamp": 1785070800,
+    "startIso": "2026-07-26T13:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "4"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "5"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Sprint",
+    "codiceSessione": "SPRINT",
+    "round": 12,
+    "gp": "Dutch Grand Prix",
+    "circuito": "Circuit Park Zandvoort",
+    "localita": "Zandvoort",
+    "paese": "Netherlands",
+    "startTimestamp": 1787392800,
+    "startIso": "2026-08-22T10:00:00+00:00",
+    "durata": 3600,
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "2"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "7"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 12,
+    "gp": "Dutch Grand Prix",
+    "circuito": "Circuit Park Zandvoort",
+    "localita": "Zandvoort",
+    "paese": "Netherlands",
+    "startTimestamp": 1787407200,
+    "startIso": "2026-08-22T14:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "5"
+      },
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "6"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 12,
+    "gp": "Dutch Grand Prix",
+    "circuito": "Circuit Park Zandvoort",
+    "localita": "Zandvoort",
+    "paese": "Netherlands",
+    "startTimestamp": 1787490000,
+    "startIso": "2026-08-23T13:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "4"
+      },
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "5"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 13,
+    "gp": "Italian Grand Prix",
+    "circuito": "Autodromo Nazionale di Monza",
+    "localita": "Monza",
+    "paese": "Italy",
+    "startTimestamp": 1788616800,
+    "startIso": "2026-09-05T14:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 13,
+    "gp": "Italian Grand Prix",
+    "circuito": "Autodromo Nazionale di Monza",
+    "localita": "Monza",
+    "paese": "Italy",
+    "startTimestamp": 1788699600,
+    "startIso": "2026-09-06T13:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 14,
+    "gp": "Spanish Grand Prix",
+    "circuito": "Madring",
+    "localita": "Madrid",
+    "paese": "Spain",
+    "startTimestamp": 1789221600,
+    "startIso": "2026-09-12T14:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 14,
+    "gp": "Spanish Grand Prix",
+    "circuito": "Madring",
+    "localita": "Madrid",
+    "paese": "Spain",
+    "startTimestamp": 1789304400,
+    "startIso": "2026-09-13T13:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 15,
+    "gp": "Azerbaijan Grand Prix",
+    "circuito": "Baku City Circuit",
+    "localita": "Baku",
+    "paese": "Azerbaijan",
+    "startTimestamp": 1790337600,
+    "startIso": "2026-09-25T12:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "2"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "6"
+      }
+    ],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 15,
+    "gp": "Azerbaijan Grand Prix",
+    "circuito": "Baku City Circuit",
+    "localita": "Baku",
+    "paese": "Azerbaijan",
+    "startTimestamp": 1790420400,
+    "startIso": "2026-09-26T11:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 16,
+    "gp": "Bahrain Grand Prix in Malaysia",
+    "circuito": "Sepang International Circuit",
+    "localita": "Kuala Lumpur",
+    "paese": "Malaysia",
+    "startTimestamp": 1791014400,
+    "startIso": "2026-10-03T08:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 16,
+    "gp": "Bahrain Grand Prix in Malaysia",
+    "circuito": "Sepang International Circuit",
+    "localita": "Kuala Lumpur",
+    "paese": "Malaysia",
+    "startTimestamp": 1791097200,
+    "startIso": "2026-10-04T07:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Sprint",
+    "codiceSessione": "SPRINT",
+    "round": 17,
+    "gp": "Singapore Grand Prix",
+    "circuito": "Marina Bay Street Circuit",
+    "localita": "Marina Bay",
+    "paese": "Singapore",
+    "startTimestamp": 1791622800,
+    "startIso": "2026-10-10T09:00:00+00:00",
+    "durata": 3600,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 17,
+    "gp": "Singapore Grand Prix",
+    "circuito": "Marina Bay Street Circuit",
+    "localita": "Marina Bay",
+    "paese": "Singapore",
+    "startTimestamp": 1791637200,
+    "startIso": "2026-10-10T13:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 17,
+    "gp": "Singapore Grand Prix",
+    "circuito": "Marina Bay Street Circuit",
+    "localita": "Marina Bay",
+    "paese": "Singapore",
+    "startTimestamp": 1791720000,
+    "startIso": "2026-10-11T12:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 18,
+    "gp": "United States Grand Prix",
+    "circuito": "Circuit of the Americas",
+    "localita": "Austin",
+    "paese": "USA",
+    "startTimestamp": 1792875600,
+    "startIso": "2026-10-24T21:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 18,
+    "gp": "United States Grand Prix",
+    "circuito": "Circuit of the Americas",
+    "localita": "Austin",
+    "paese": "USA",
+    "startTimestamp": 1792958400,
+    "startIso": "2026-10-25T20:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 19,
+    "gp": "Mexico City Grand Prix",
+    "circuito": "Autódromo Hermanos Rodríguez",
+    "localita": "Mexico City",
+    "paese": "Mexico",
+    "startTimestamp": 1793480400,
+    "startIso": "2026-10-31T21:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 19,
+    "gp": "Mexico City Grand Prix",
+    "circuito": "Autódromo Hermanos Rodríguez",
+    "localita": "Mexico City",
+    "paese": "Mexico",
+    "startTimestamp": 1793563200,
+    "startIso": "2026-11-01T20:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 20,
+    "gp": "Brazilian Grand Prix",
+    "circuito": "Autódromo José Carlos Pace",
+    "localita": "São Paulo",
+    "paese": "Brazil",
+    "startTimestamp": 1794074400,
+    "startIso": "2026-11-07T18:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 20,
+    "gp": "Brazilian Grand Prix",
+    "circuito": "Autódromo José Carlos Pace",
+    "localita": "São Paulo",
+    "paese": "Brazil",
+    "startTimestamp": 1794157200,
+    "startIso": "2026-11-08T17:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 21,
+    "gp": "Las Vegas Grand Prix",
+    "circuito": "Las Vegas Strip Street Circuit",
+    "localita": "Las Vegas",
+    "paese": "USA",
+    "startTimestamp": 1795233600,
+    "startIso": "2026-11-21T04:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 21,
+    "gp": "Las Vegas Grand Prix",
+    "circuito": "Las Vegas Strip Street Circuit",
+    "localita": "Las Vegas",
+    "paese": "USA",
+    "startTimestamp": 1795320000,
+    "startIso": "2026-11-22T04:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 22,
+    "gp": "Qatar Grand Prix",
+    "circuito": "Lusail International Circuit",
+    "localita": "Lusail",
+    "paese": "Qatar",
+    "startTimestamp": 1795888800,
+    "startIso": "2026-11-28T18:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 22,
+    "gp": "Qatar Grand Prix",
+    "circuito": "Lusail International Circuit",
+    "localita": "Lusail",
+    "paese": "Qatar",
+    "startTimestamp": 1795968000,
+    "startIso": "2026-11-29T16:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Qualifica",
+    "codiceSessione": "QUALIFYING",
+    "round": 23,
+    "gp": "Abu Dhabi Grand Prix",
+    "circuito": "Yas Marina Circuit",
+    "localita": "Abu Dhabi",
+    "paese": "UAE",
+    "startTimestamp": 1796479200,
+    "startIso": "2026-12-05T14:00:00+00:00",
+    "durata": 5400,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  },
+  {
+    "tipo": "f1",
+    "sessione": "Gara",
+    "codiceSessione": "RACE",
+    "round": 23,
+    "gp": "Abu Dhabi Grand Prix",
+    "circuito": "Yas Marina Circuit",
+    "localita": "Abu Dhabi",
+    "paese": "UAE",
+    "startTimestamp": 1796562000,
+    "startIso": "2026-12-06T13:00:00+00:00",
+    "durata": 7200,
+    "risultatiFerrari": [],
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport F1",
+      "url": "https://tuo-sito.example/f1",
+      "messaggio": ""
+    }
+  }
+]

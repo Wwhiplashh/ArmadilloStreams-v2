@@ -1,12 +1,17 @@
-/* Reset minimo */
+/* =====================================================
+   RESET E VARIABILI
+   ===================================================== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
   --inter-blu: #0068a8;
   --inter-blu-scuro: #003d66;
   --inter-nero: #0a0e14;
+  --f1-rosso: #e10600;
   --testo: #f5f7fa;
   --testo-tenue: #a8b2c1;
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(255, 255, 255, 0.08);
 }
 
 body {
@@ -14,80 +19,187 @@ body {
   background: radial-gradient(circle at top, var(--inter-blu-scuro) 0%, var(--inter-nero) 70%);
   color: var(--testo);
   min-height: 100vh;
+  padding: 24px 16px 48px;
+}
+
+#app { max-width: 640px; margin: 0 auto; }
+
+/* =====================================================
+   HERO MULTI-EVENTO
+   ===================================================== */
+.hero {
+  margin-bottom: 32px;
+}
+
+.hero-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--testo-tenue);
+  margin-bottom: 16px;
+}
+
+.hero-list {
   display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.hero-item {
+  background: linear-gradient(135deg, rgba(0, 104, 168, 0.2) 0%, rgba(0, 61, 102, 0.1) 100%);
+  border: 1px solid rgba(0, 104, 168, 0.4);
+  border-radius: 16px;
+  padding: 18px 20px;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  padding: 20px;
+  gap: 16px;
 }
 
-#app { width: 100%; max-width: 480px; }
-
-/* Card */
-.partita {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 28px 24px;
-  text-align: center;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+.hero-item.f1 {
+  background: linear-gradient(135deg, rgba(225, 6, 0, 0.15) 0%, rgba(100, 0, 0, 0.08) 100%);
+  border-color: rgba(225, 6, 0, 0.4);
 }
 
-.competizione {
+.hero-item .info { flex: 1; min-width: 0; }
+
+.hero-item .titolo {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hero-item .sottotitolo {
+  font-size: 0.8rem;
+  color: var(--testo-tenue);
+}
+
+.hero-item .countdown {
+  font-size: 1.1rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: #6cc4ff;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.hero-item.f1 .countdown { color: #ff6b6b; }
+
+/* =====================================================
+   SEZIONI
+   ===================================================== */
+.sezione { margin-bottom: 28px; }
+
+.sezione-title {
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   color: var(--testo-tenue);
-  margin-bottom: 24px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-/* Squadre */
-.squadre {
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.inter-dot {
+  background: var(--inter-blu);
+  box-shadow: 0 0 8px var(--inter-blu);
+}
+
+.f1-dot {
+  background: var(--f1-rosso);
+  box-shadow: 0 0 8px var(--f1-rosso);
+}
+
+/* =====================================================
+   CARD GENERICA
+   ===================================================== */
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  padding: 24px 20px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+.card .competizione {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--testo-tenue);
+  margin-bottom: 18px;
+}
+
+/* =====================================================
+   CARD INTER (squadre + loghi)
+   ===================================================== */
+.card .squadre {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
-.squadra {
+.card .squadra {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
-.logo { width: 64px; height: 64px; object-fit: contain; }
+.card .logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+}
 
-.nome {
-  font-size: 0.95rem;
+.card .nome {
+  font-size: 0.9rem;
   font-weight: 600;
   line-height: 1.2;
 }
 
-.vs {
-  font-size: 0.8rem;
+.card .vs {
+  font-size: 0.75rem;
   color: var(--testo-tenue);
   letter-spacing: 0.15em;
 }
 
-/* Data */
-.data-ora {
-  font-size: 0.95rem;
+.card .data-ora {
+  font-size: 0.9rem;
   color: var(--testo-tenue);
-  margin-bottom: 24px;
+  margin-bottom: 16px;
 }
 
-/* Countdown */
+.card .tv {
+  font-size: 0.85rem;
+  color: var(--testo-tenue);
+}
+
+/* =====================================================
+   COUNTDOWN BOX
+   ===================================================== */
 .countdown-box {
   background: rgba(0, 104, 168, 0.15);
   border: 1px solid rgba(0, 104, 168, 0.4);
   border-radius: 14px;
   padding: 18px;
   margin-bottom: 18px;
+  text-align: center;
 }
 
-.label {
+.countdown-box .label {
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -95,26 +207,112 @@ body {
   margin-bottom: 8px;
 }
 
-.countdown {
+.countdown-box .countdown {
   font-size: 1.6rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
   color: #6cc4ff;
 }
 
-.tv {
+.countdown-box.avviso {
+  background: rgba(255, 200, 0, 0.1);
+  border-color: rgba(255, 200, 0, 0.4);
+}
+
+/* =====================================================
+   NOTE (Mediaset, Prime Video, sconosciuto)
+   ===================================================== */
+.card .nota {
+  margin-top: 12px;
+  font-size: 0.8rem;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(255, 200, 0, 0.08);
+  border: 1px solid rgba(255, 200, 0, 0.25);
+  color: #ffd97a;
+}
+
+.card .nota.tv {
+  background: rgba(0, 200, 100, 0.08);
+  border-color: rgba(0, 200, 100, 0.3);
+  color: #7fe0aa;
+}
+
+.card .nota.info {
+  background: rgba(120, 170, 255, 0.08);
+  border-color: rgba(120, 170, 255, 0.3);
+  color: #a7c4ff;
+}
+
+/* =====================================================
+   CARD F1
+   ===================================================== */
+.card .f1-header {
+  margin-bottom: 16px;
+}
+
+.card .f1-gp {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.card .f1-sessione {
+  display: inline-block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(225, 6, 0, 0.2);
+  color: #ff6b6b;
+  margin-bottom: 8px;
+}
+
+.card .f1-luogo {
   font-size: 0.85rem;
   color: var(--testo-tenue);
 }
 
-/* Stati */
+.card .f1-risultati {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card .f1-risultati-titolo {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--testo-tenue);
+  margin-bottom: 8px;
+}
+
+.card .ferrari-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  padding: 4px 0;
+}
+
+.card .ferrari-row .pos {
+  font-weight: 700;
+  color: #ff6b6b;
+}
+
+/* =====================================================
+   STATI (caricamento, errore)
+   ===================================================== */
 .stato, .errore {
   text-align: center;
   padding: 40px 20px;
   color: var(--testo-tenue);
 }
 
-.errore p:first-child { font-size: 1.1rem; margin-bottom: 8px; }
+.errore p:first-child {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
 
 .spinner {
   width: 36px;
@@ -126,37 +324,46 @@ body {
   animation: spin 0.8s linear infinite;
 }
 
-@keyframes spin { to { transform: rotate(360deg); } }
-
-/* Mobile */
-@media (max-width: 380px) {
-  .logo { width: 52px; height: 52px; }
-  .countdown { font-size: 1.35rem; }
+@keyframes spin {
+  to { transform: rotate(360deg); }
 }
-.nota {
-  margin-top: 10px;
-  font-size: 0.85rem;
-  padding: 8px 12px;
+
+/* =====================================================
+   BOTTONE "GUARDA ORA"
+   ===================================================== */
+.btn-guarda {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--inter-blu) 0%, var(--inter-blu-scuro) 100%);
+  border: none;
   border-radius: 10px;
-  background: rgba(255, 200, 0, 0.08);
-  border: 1px solid rgba(255, 200, 0, 0.25);
-  color: #ffd97a;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  font-family: inherit;
 }
 
-.nota.tv {
-  background: rgba(0, 200, 100, 0.08);
-  border-color: rgba(0, 200, 100, 0.3);
-  color: #7fe0aa;
+.btn-guarda:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(0, 104, 168, 0.4);
 }
 
-/* Stato "partita iniziata ma niente redirect" */
-.countdown-box.avviso {
-  background: rgba(255, 200, 0, 0.1);
-  border-color: rgba(255, 200, 0, 0.4);
+.hero-item.f1 .btn-guarda {
+  background: linear-gradient(135deg, #e10600 0%, #8b0000 100%);
 }
 
-.nota.info {
-  background: rgba(120, 170, 255, 0.08);
-  border-color: rgba(120, 170, 255, 0.3);
-  color: #a7c4ff;
+.hero-item.f1 .btn-guarda:hover {
+  box-shadow: 0 6px 20px rgba(225, 6, 0, 0.4);
+}
+
+/* =====================================================
+   MOBILE
+   ===================================================== */
+@media (max-width: 380px) {
+  .card .logo { width: 48px; height: 48px; }
+  .hero-item .titolo { font-size: 0.9rem; }
+  .hero-item .countdown { font-size: 1rem; }
+  .countdown-box .countdown { font-size: 1.35rem; }
 }

@@ -11,6 +11,10 @@ INTER_TEAM_ID = 2697
 URL_SERIE_A   = "https://tuo-sito.example/serie-a"
 URL_CHAMPIONS = "https://tuo-sito.example/champions"
 
+# --- Cartella dei loghi scaricati ---
+LOGOS_DIR = "logos"
+os.makedirs(LOGOS_DIR, exist_ok=True)
+
 
 def determina_destinazione(competizione, data_dt):
     comp = competizione.lower()
@@ -56,6 +60,34 @@ def determina_destinazione(competizione, data_dt):
     }
 
 
+def scarica_logo(team_id, team_name):
+    """Scarica il logo di una squadra e restituisce il percorso locale."""
+    if not team_id:
+        return ""
+
+    filename = f"team_{team_id}.png"
+    local_path = os.path.join(LOGOS_DIR, filename)
+
+    # Se il file esiste già, non riscaricarlo (risparmia tempo e banda)
+    if os.path.exists(local_path):
+        return local_path
+
+    url = f"https://img.sofascore.com/api/v1/team/{team_id}/image"
+    try:
+        resp = requests.get(url, timeout=10)
+        if resp.status_code == 200:
+            with open(local_path, "wb") as f:
+                f.write(resp.content)
+            print(f"✅ Scaricato logo: {team_name} ({filename})")
+            return local_path
+        else:
+            print(f"⚠️ Impossibile scaricare logo per {team_name}: HTTP {resp.status_code}")
+    except Exception as e:
+        print(f"❌ Errore scaricando logo per {team_name}: {e}")
+
+    return ""
+
+
 def fetch_inter_matches():
     if not RAPIDAPI_KEY:
         print("❌ Errore: RAPIDAPI_KEY non impostata!")
@@ -96,10 +128,11 @@ def fetch_inter_matches():
         competition = tournament.get("name", "Competizione sconosciuta")
         destinazione = determina_destinazione(competition, data_dt_locale)
 
+        # Scarica i loghi localmente (evita il blocco CORS di Sofascore)
         home_id = home.get("id")
         away_id = away.get("id")
-        home_logo = f"https://img.sofascore.com/api/v1/team/{home_id}/image" if home_id else ""
-        away_logo = f"https://img.sofascore.com/api/v1/team/{away_id}/image" if away_id else ""
+        home_logo = scarica_logo(home_id, home.get("name", "Sconosciuta"))
+        away_logo = scarica_logo(away_id, away.get("name", "Sconosciuta"))
 
         partite.append({
             "startTimestamp": timestamp,

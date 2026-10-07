@@ -1,0 +1,452 @@
+[
+  {
+    "startTimestamp": 1791648000,
+    "startIso": "2026-10-10T16:00:00+00:00",
+    "home_team": "Inter",
+    "away_team": "Parma",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2690/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1791918000,
+    "startIso": "2026-10-13T19:00:00+00:00",
+    "home_team": "Inter",
+    "away_team": "Club Brugge KV",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2888/image",
+    "competizione": "UEFA Champions League",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport Uno",
+      "url": "https://tuo-sito.example/champions",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1792252800,
+    "startIso": "2026-10-17T16:00:00+00:00",
+    "home_team": "Bologna",
+    "away_team": "Inter",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2685/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1792609200,
+    "startIso": "2026-10-21T19:00:00+00:00",
+    "home_team": "Inter",
+    "away_team": "Shakhtar Donetsk",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/3313/image",
+    "competizione": "UEFA Champions League",
+    "destinazione": {
+      "tipo": "esterno",
+      "servizio": "Prime Video",
+      "url": "",
+      "messaggio": "Esclusiva Prime Video: non sarà trasmessa sul nostro sito"
+    }
+  },
+  {
+    "startTimestamp": 1792927800,
+    "startIso": "2026-10-25T11:30:00+00:00",
+    "home_team": "Inter",
+    "away_team": "Fiorentina",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2693/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1793208600,
+    "startIso": "2026-10-28T17:30:00+00:00",
+    "home_team": "Venezia",
+    "away_team": "Inter",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2688/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1793475900,
+    "startIso": "2026-10-31T19:45:00+00:00",
+    "home_team": "AC Milan",
+    "away_team": "Inter",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2692/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1793736000,
+    "startIso": "2026-11-03T20:00:00+00:00",
+    "home_team": "Feyenoord",
+    "away_team": "Inter",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2959/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "competizione": "UEFA Champions League",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport Uno",
+      "url": "https://tuo-sito.example/champions",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1794157200,
+    "startIso": "2026-11-08T17:00:00+00:00",
+    "home_team": "Inter",
+    "away_team": "Como",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2704/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1795376700,
+    "startIso": "2026-11-22T19:45:00+00:00",
+    "home_team": "Atalanta",
+    "away_team": "Inter",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2686/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1795636800,
+    "startIso": "2026-11-25T20:00:00+00:00",
+    "home_team": "Inter",
+    "away_team": "VfB Stuttgart",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2677/image",
+    "competizione": "UEFA Champions League",
+    "destinazione": {
+      "tipo": "esterno",
+      "servizio": "Prime Video",
+      "url": "",
+      "messaggio": "Esclusiva Prime Video: non sarà trasmessa sul nostro sito"
+    }
+  },
+  {
+    "startTimestamp": 1795895100,
+    "startIso": "2026-11-28T19:45:00+00:00",
+    "home_team": "Inter",
+    "away_team": "Genoa",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2713/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1796155200,
+    "startIso": "2026-12-01T20:00:00+00:00",
+    "home_team": "Inter",
+    "away_team": "Genoa",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2713/image",
+    "competizione": "Coppa Italia",
+    "destinazione": {
+      "tipo": "tv",
+      "servizio": "Mediaset",
+      "url": "",
+      "messaggio": "In chiaro su Mediaset: potrai guardarla in TV"
+    }
+  },
+  {
+    "startTimestamp": 1796490000,
+    "startIso": "2026-12-05T17:00:00+00:00",
+    "home_team": "Frosinone",
+    "away_team": "Inter",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2801/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1796846400,
+    "startIso": "2026-12-09T20:00:00+00:00",
+    "home_team": "Borussia Dortmund",
+    "away_team": "Inter",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2673/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "competizione": "UEFA Champions League",
+    "destinazione": {
+      "tipo": "esterno",
+      "servizio": "Prime Video",
+      "url": "",
+      "messaggio": "Esclusiva Prime Video: non sarà trasmessa sul nostro sito"
+    }
+  },
+  {
+    "startTimestamp": 1797080400,
+    "startIso": "2026-12-12T13:00:00+00:00",
+    "home_team": "Inter",
+    "away_team": "Torino",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2696/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1797685200,
+    "startIso": "2026-12-19T13:00:00+00:00",
+    "home_team": "Lecce",
+    "away_team": "Inter",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2689/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1797969600,
+    "startIso": "2026-12-22T20:00:00+00:00",
+    "home_team": "Inter",
+    "away_team": "Lazio",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2699/image",
+    "competizione": "Super Cup",
+    "destinazione": {
+      "tipo": "sconosciuto",
+      "servizio": "",
+      "url": "",
+      "messaggio": "Questa partita non è disponibile sul nostro sito"
+    }
+  },
+  {
+    "startTimestamp": 1798975800,
+    "startIso": "2027-01-03T11:30:00+00:00",
+    "home_team": "Inter",
+    "away_team": "Sassuolo",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2793/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1799154000,
+    "startIso": "2027-01-05T13:00:00+00:00",
+    "home_team": "Lazio",
+    "away_team": "Inter",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2699/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1799499600,
+    "startIso": "2027-01-09T13:00:00+00:00",
+    "home_team": "Inter",
+    "away_team": "Juventus",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2687/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1800104400,
+    "startIso": "2027-01-16T13:00:00+00:00",
+    "home_team": "Parma",
+    "away_team": "Inter",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2690/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1800388800,
+    "startIso": "2027-01-19T20:00:00+00:00",
+    "home_team": "Inter",
+    "away_team": "Liverpool FC",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/44/image",
+    "competizione": "UEFA Champions League",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "Sky Sport Uno",
+      "url": "https://tuo-sito.example/champions",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1800709200,
+    "startIso": "2027-01-23T13:00:00+00:00",
+    "home_team": "Inter",
+    "away_team": "Venezia",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2688/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1801080000,
+    "startIso": "2027-01-27T20:00:00+00:00",
+    "home_team": "ŠK Slovan Bratislava",
+    "away_team": "Inter",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2404/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "competizione": "UEFA Champions League",
+    "destinazione": {
+      "tipo": "esterno",
+      "servizio": "Prime Video",
+      "url": "",
+      "messaggio": "Esclusiva Prime Video: non sarà trasmessa sul nostro sito"
+    }
+  },
+  {
+    "startTimestamp": 1801314000,
+    "startIso": "2027-01-30T13:00:00+00:00",
+    "home_team": "SSC Napoli",
+    "away_team": "Inter",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2714/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1801918800,
+    "startIso": "2027-02-06T13:00:00+00:00",
+    "home_team": "Inter",
+    "away_team": "Cagliari",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2719/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1802523600,
+    "startIso": "2027-02-13T13:00:00+00:00",
+    "home_team": "Inter",
+    "away_team": "AC Milan",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2692/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1803128400,
+    "startIso": "2027-02-20T13:00:00+00:00",
+    "home_team": "Fiorentina",
+    "away_team": "Inter",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2693/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1803733200,
+    "startIso": "2027-02-27T13:00:00+00:00",
+    "home_team": "Inter",
+    "away_team": "Atalanta",
+    "home_logo": "https://api.sofascore.app/api/v1/team/2697/image",
+    "away_logo": "https://api.sofascore.app/api/v1/team/2686/image",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  }
+]

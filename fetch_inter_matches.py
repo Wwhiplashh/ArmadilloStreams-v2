@@ -11,8 +11,6 @@ INTER_TEAM_ID = 2697
 # --- CONFIGURAZIONE: URL DEL TUO SITO ---
 URL_SERIE_A     = "https://tuo-sito.example/serie-a"
 URL_CHAMPIONS   = "https://tuo-sito.example/champions"
-URL_SUPERCOPPA  = "https://tuo-sito.example/supercoppa"
-URL_GENERICO    = "https://tuo-sito.example"
 
 def determina_destinazione(competizione, data_dt):
     comp = competizione.lower()

@@ -178,9 +178,7 @@ function renderCardF1(s) {
 // =====================================================
 // COUNTDOWN CON LOGICA "EVENTI IN CORSO"
 // =====================================================
-// =====================================================
-// COUNTDOWN CON LOGICA "EVENTI IN CORSO"
-// =====================================================
+
 function avviaTuttiCountdown() {
   function tick() {
     const adesso = Date.now();

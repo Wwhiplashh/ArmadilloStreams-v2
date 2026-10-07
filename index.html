@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prossima partita Inter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="app">
+
+    <!-- Stato di caricamento -->
+    <div id="stato" class="stato">
+      <div class="spinner"></div>
+      <p>Caricamento...</p>
+    </div>
+
+    <!-- Card della partita (nascosta finché non abbiamo i dati) -->
+    <section id="partita" class="partita" hidden>
+
+      <p id="competizione" class="competizione"></p>
+
+      <div class="squadre">
+        <div class="squadra">
+          <img id="home-logo" class="logo" alt="">
+          <span id="home-nome" class="nome"></span>
+        </div>
+        <span class="vs">VS</span>
+        <div class="squadra">
+          <img id="away-logo" class="logo" alt="">
+          <span id="away-nome" class="nome"></span>
+        </div>
+      </div>
+
+      <p id="data-ora" class="data-ora"></p>
+
+      <div class="countdown-box">
+        <p class="label">Manca</p>
+        <div id="countdown" class="countdown"></div>
+      </div>
+
+      <p id="tv" class="tv"></p>
+
+    </section>
+
+    <!-- Messaggio d'errore -->
+    <div id="errore" class="errore" hidden>
+      <p>😕 Impossibile caricare la prossima partita.</p>
+      <p id="errore-dettaglio"></p>
+    </div>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

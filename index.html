@@ -3,50 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prossima partita Inter</title>
+  <title>Prossimi eventi sportivi</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <main id="app">
 
-    <!-- Stato di caricamento -->
+    <!-- =====================================================
+         HERO MULTI-EVENTO (prossime 48 ore)
+         ===================================================== -->
+    <section id="hero" class="hero" hidden>
+      <h1 class="hero-title">Prossimi eventi</h1>
+      <div id="hero-list" class="hero-list"></div>
+    </section>
+
+    <!-- =====================================================
+         STATO DI CARICAMENTO
+         ===================================================== -->
     <div id="stato" class="stato">
       <div class="spinner"></div>
       <p>Caricamento...</p>
     </div>
 
-    <!-- Card della partita (nascosta finché non abbiamo i dati) -->
-    <section id="partita" class="partita" hidden>
-
-      <p id="competizione" class="competizione"></p>
-
-      <div class="squadre">
-        <div class="squadra">
-          <img id="home-logo" class="logo" alt="">
-          <span id="home-nome" class="nome"></span>
-        </div>
-        <span class="vs">VS</span>
-        <div class="squadra">
-          <img id="away-logo" class="logo" alt="">
-          <span id="away-nome" class="nome"></span>
-        </div>
-      </div>
-
-      <p id="data-ora" class="data-ora"></p>
-
-      <div class="countdown-box">
-        <p class="label">Manca</p>
-        <div id="countdown" class="countdown"></div>
-      </div>
-
-      <p id="tv" class="tv"></p>
-      <p id="nota" class="nota" hidden></p>
-
+    <!-- =====================================================
+         SEZIONE INTER
+         ===================================================== -->
+    <section id="sezione-inter" class="sezione" hidden>
+      <h2 class="sezione-title">
+        <span class="dot inter-dot"></span> Inter
+      </h2>
+      <div id="card-inter" class="card"></div>
     </section>
 
-    <!-- Messaggio d'errore -->
+    <!-- =====================================================
+         SEZIONE FORMULA 1
+         ===================================================== -->
+    <section id="sezione-f1" class="sezione" hidden>
+      <h2 class="sezione-title">
+        <span class="dot f1-dot"></span> Formula 1
+      </h2>
+      <div id="card-f1" class="card"></div>
+    </section>
+
+    <!-- =====================================================
+         ERRORE
+         ===================================================== -->
     <div id="errore" class="errore" hidden>
-      <p>😕 Impossibile caricare la prossima partita.</p>
+      <p>😕 Impossibile caricare gli eventi.</p>
       <p id="errore-dettaglio"></p>
     </div>
 

@@ -9,45 +9,34 @@
 <body>
   <main id="app">
 
-    <!-- =====================================================
-         HERO MULTI-EVENTO (prossime 48 ore)
-         ===================================================== -->
-    <section id="hero" class="hero" hidden>
-      <h1 class="hero-title">Prossimi eventi</h1>
-      <div id="hero-list" class="hero-list"></div>
-    </section>
-
-    <!-- =====================================================
-         STATO DI CARICAMENTO
-         ===================================================== -->
+    <!-- Stato di caricamento -->
     <div id="stato" class="stato">
       <div class="spinner"></div>
       <p>Caricamento...</p>
     </div>
 
-    <!-- =====================================================
-         SEZIONE INTER
-         ===================================================== -->
-    <section id="sezione-inter" class="sezione" hidden>
-      <h2 class="sezione-title">
-        <span class="dot inter-dot"></span> Inter
-      </h2>
-      <div id="card-inter" class="card"></div>
-    </section>
+    <!-- Griglia con le due card -->
+    <div id="griglia" class="griglia-eventi" hidden>
 
-    <!-- =====================================================
-         SEZIONE FORMULA 1
-         ===================================================== -->
-    <section id="sezione-f1" class="sezione" hidden>
-      <h2 class="sezione-title">
-        <span class="dot f1-dot"></span> Formula 1
-      </h2>
-      <div id="card-f1" class="card"></div>
-    </section>
+      <!-- Card Inter -->
+      <section id="sezione-inter" class="sezione">
+        <h2 class="sezione-title">
+          <span class="dot inter-dot"></span> Inter
+        </h2>
+        <div id="card-inter" class="card"></div>
+      </section>
 
-    <!-- =====================================================
-         ERRORE
-         ===================================================== -->
+      <!-- Card Formula 1 -->
+      <section id="sezione-f1" class="sezione">
+        <h2 class="sezione-title">
+          <span class="dot f1-dot"></span> Formula 1
+        </h2>
+        <div id="card-f1" class="card"></div>
+      </section>
+
+    </div>
+
+    <!-- Errore -->
     <div id="errore" class="errore" hidden>
       <p>😕 Impossibile caricare gli eventi.</p>
       <p id="errore-dettaglio"></p>

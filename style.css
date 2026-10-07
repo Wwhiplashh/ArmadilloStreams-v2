@@ -55,29 +55,45 @@ body {
   align-items: center;
 }
 
-/* Badge competizione (blu per Inter, rosso per F1) */
-.card .competizione {
+/* --- Riga 1: badge competizione/sessione --- */
+.card .competizione,
+.card .f1-sessione {
   display: inline-block;
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   padding: 4px 10px;
   border-radius: 20px;
-  background: rgba(0, 104, 168, 0.25);
-  color: #6cc4ff;
   margin-bottom: 18px;
 }
 
-/* =====================================================
-   CARD INTER (squadre + loghi)
-   ===================================================== */
+.card .competizione {
+  background: rgba(0, 104, 168, 0.25);
+  color: #6cc4ff;
+}
+
+.card .f1-sessione {
+  background: rgba(225, 6, 0, 0.2);
+  color: #ff6b6b;
+}
+
+/* --- Riga 2: contenuto centrale (squadre per Inter, GP per F1) --- */
+.card .squadre,
+.card .f1-header {
+  min-height: 130px;
+  margin-bottom: 18px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .card .squadre {
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   gap: 12px;
-  margin-bottom: 18px;
-  width: 100%;
 }
 
 .card .squadra {
@@ -105,6 +121,18 @@ body {
   letter-spacing: 0.15em;
 }
 
+.card .f1-gp {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.card .f1-luogo {
+  font-size: 0.85rem;
+  color: var(--testo-tenue);
+}
+
+/* --- Riga 3: data --- */
 .card .data-ora {
   font-size: 0.9rem;
   color: var(--testo-tenue);
@@ -171,35 +199,8 @@ body {
 }
 
 /* =====================================================
-   CARD F1
+   RISULTATI F1
    ===================================================== */
-.card .f1-header {
-  margin-bottom: 16px;
-}
-
-.card .f1-gp {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 4px;
-}
-
-.card .f1-sessione {
-  display: inline-block;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  padding: 4px 10px;
-  border-radius: 20px;
-  background: rgba(225, 6, 0, 0.2);
-  color: #ff6b6b;
-  margin-bottom: 8px;
-}
-
-.card .f1-luogo {
-  font-size: 0.85rem;
-  color: var(--testo-tenue);
-}
-
 .card .f1-risultati {
   margin-top: 16px;
   padding-top: 16px;
@@ -297,26 +298,4 @@ body {
 @media (max-width: 380px) {
   .card .logo { width: 48px; height: 48px; }
   .countdown-box .countdown { font-size: 1.35rem; }
-}
-/* =====================================================
-   ALLINEAMENTO DATE E COUNTDOWN TRA LE DUE CARD
-   ===================================================== */
-
-/* Card Inter: badge + squadre devono occupare uno spazio fisso */
-.card .competizione {
-  min-height: 22px;
-}
-
-.card .squadre {
-  min-height: 92px;
-}
-
-/* Card F1: l'header deve occupare lo stesso spazio totale
-   della somma (badge + squadre) della card Inter, così
-   data-ora e countdown-box partono alla stessa altezza. */
-.card .f1-header {
-  min-height: 132px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }

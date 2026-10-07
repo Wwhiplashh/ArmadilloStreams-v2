@@ -2,10 +2,6 @@
 // CONFIGURAZIONE
 // =====================================================
 
-// Dove reindirizzare quando la partita inizia.
-// ⚠️ SOSTITUISCI con il tuo URL reale!
-const URL_DESTINAZIONE = "https://il-tuo-sito-di-streaming.example";
-
 // Se il countdown arriva a 0 ma per qualche motivo non vogliamo
 // reindirizzare subito, mettiamo un piccolo margine (in ms).
 // Utile per evitare redirect a partita non ancora iniziata per piccoli ritardi.

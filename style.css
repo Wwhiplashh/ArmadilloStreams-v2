@@ -1,0 +1,135 @@
+/* Reset minimo */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --inter-blu: #0068a8;
+  --inter-blu-scuro: #003d66;
+  --inter-nero: #0a0e14;
+  --testo: #f5f7fa;
+  --testo-tenue: #a8b2c1;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: radial-gradient(circle at top, var(--inter-blu-scuro) 0%, var(--inter-nero) 70%);
+  color: var(--testo);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+#app { width: 100%; max-width: 480px; }
+
+/* Card */
+.partita {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 28px 24px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.competizione {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--testo-tenue);
+  margin-bottom: 24px;
+}
+
+/* Squadre */
+.squadre {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.squadra {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo { width: 64px; height: 64px; object-fit: contain; }
+
+.nome {
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.vs {
+  font-size: 0.8rem;
+  color: var(--testo-tenue);
+  letter-spacing: 0.15em;
+}
+
+/* Data */
+.data-ora {
+  font-size: 0.95rem;
+  color: var(--testo-tenue);
+  margin-bottom: 24px;
+}
+
+/* Countdown */
+.countdown-box {
+  background: rgba(0, 104, 168, 0.15);
+  border: 1px solid rgba(0, 104, 168, 0.4);
+  border-radius: 14px;
+  padding: 18px;
+  margin-bottom: 18px;
+}
+
+.label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--testo-tenue);
+  margin-bottom: 8px;
+}
+
+.countdown {
+  font-size: 1.6rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: #6cc4ff;
+}
+
+.tv {
+  font-size: 0.85rem;
+  color: var(--testo-tenue);
+}
+
+/* Stati */
+.stato, .errore {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--testo-tenue);
+}
+
+.errore p:first-child { font-size: 1.1rem; margin-bottom: 8px; }
+
+.spinner {
+  width: 36px;
+  height: 36px;
+  border: 3px solid rgba(255, 255, 255, 0.15);
+  border-top-color: var(--inter-blu);
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Mobile */
+@media (max-width: 380px) {
+  .logo { width: 52px; height: 52px; }
+  .countdown { font-size: 1.35rem; }
+}

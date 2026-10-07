@@ -108,6 +108,10 @@ if (d.tipo === "esterno") {
   elNota.textContent = "📡 " + (d.messaggio || "In chiaro in TV");
   elNota.className = "nota tv";
   elNota.hidden = false;
+} else if (d.tipo === "sconosciuto") {
+  elNota.textContent = "ℹ️ " + (d.messaggio || "Partita non disponibile sul nostro sito");
+  elNota.className = "nota";
+  elNota.hidden = false;
 } else {
   elNota.hidden = true;
 }

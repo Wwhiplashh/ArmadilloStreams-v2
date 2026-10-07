@@ -25,46 +25,22 @@ body {
 #app { max-width: 900px; margin: 0 auto; }
 
 /* =====================================================
-   GRIGLIA EVENTI (2 colonne su desktop, 1 su mobile)
+   GRIGLIA EVENTI (2 colonne, card stessa altezza)
    ===================================================== */
 .griglia-eventi {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  align-items: start;
+  align-items: stretch;
 }
 
-.sezione { min-width: 0; }
-
-.sezione-title {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: var(--testo-tenue);
-  margin-bottom: 12px;
+.sezione {
+  min-width: 0;
   display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-}
-
-.inter-dot {
-  background: var(--inter-blu);
-  box-shadow: 0 0 8px var(--inter-blu);
-}
-
-.f1-dot {
-  background: var(--f1-rosso);
-  box-shadow: 0 0 8px var(--f1-rosso);
 }
 
 /* =====================================================
-   CARD GENERICA
+   CARD
    ===================================================== */
 .card {
   background: var(--card-bg);
@@ -73,14 +49,22 @@ body {
   padding: 24px 20px;
   text-align: center;
   backdrop-filter: blur(6px);
-  min-height: 260px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* Badge competizione (blu per Inter, rosso per F1) */
 .card .competizione {
-  font-size: 0.75rem;
+  display: inline-block;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--testo-tenue);
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(0, 104, 168, 0.25);
+  color: #6cc4ff;
   margin-bottom: 18px;
 }
 
@@ -93,6 +77,7 @@ body {
   align-items: center;
   gap: 12px;
   margin-bottom: 18px;
+  width: 100%;
 }
 
 .card .squadra {
@@ -126,11 +111,6 @@ body {
   margin-bottom: 16px;
 }
 
-.card .tv {
-  font-size: 0.85rem;
-  color: var(--testo-tenue);
-}
-
 /* =====================================================
    COUNTDOWN BOX
    ===================================================== */
@@ -141,6 +121,7 @@ body {
   padding: 18px;
   margin-bottom: 18px;
   text-align: center;
+  width: 100%;
 }
 
 .countdown-box .label {
@@ -174,6 +155,7 @@ body {
   background: rgba(255, 200, 0, 0.08);
   border: 1px solid rgba(255, 200, 0, 0.25);
   color: #ffd97a;
+  width: 100%;
 }
 
 .card .nota.tv {
@@ -222,6 +204,7 @@ body {
   margin-top: 16px;
   padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
+  width: 100%;
 }
 
 .card .f1-risultati-titolo {

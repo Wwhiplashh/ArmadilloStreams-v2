@@ -3,7 +3,7 @@ name: Aggiorna calendario Inter
 on:
   # Ogni 30 minuti
   schedule:
-    - cron: "*/30 * * * *"
+    - cron: "0 3 * * *"
   # Permette di lanciarla a mano dalla scheda Actions
   workflow_dispatch:
 

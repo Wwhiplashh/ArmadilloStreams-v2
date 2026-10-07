@@ -2,10 +2,7 @@
 // CONFIGURAZIONE
 // =====================================================
 const MARGINE_MS = 0;
-const FINESTRA_HERO_MS = 48 * 60 * 60 * 1000; // 48 ore
-
-// Durata partita calcio (in secondi) — usata solo per Inter
-const DURATA_CALCIO = 3 * 60 * 60; // 3 ore
+const DURATA_CALCIO = 3 * 60 * 60; // 3 ore (in secondi)
 
 // =====================================================
 // ELEMENTI
@@ -13,17 +10,14 @@ const DURATA_CALCIO = 3 * 60 * 60; // 3 ore
 const elStato = document.getElementById("stato");
 const elErrore = document.getElementById("errore");
 const elErrDettaglio = document.getElementById("errore-dettaglio");
-const elHero = document.getElementById("hero");
-const elHeroList = document.getElementById("hero-list");
-const elSezioneInter = document.getElementById("sezione-inter");
-const elSezioneF1 = document.getElementById("sezione-f1");
+const elGriglia = document.getElementById("griglia");
 const elCardInter = document.getElementById("card-inter");
 const elCardF1 = document.getElementById("card-f1");
 
-// Traccia lo stato degli elementi countdown (per evitare re-render inutili)
+// Stato degli elementi countdown
 const statoElementi = new WeakMap();
 
-// Flag globale: se true, il redirect automatico è già stato fatto
+// Se true, il redirect automatico è già stato fatto (per non rifarlo)
 let redirectEffettuato = false;
 
 // =====================================================
@@ -69,73 +63,24 @@ async function init() {
 
     const adessoSecondi = Date.now() / 1000;
 
-    // ---- Prossima partita Inter ----
     const prossimaInter = calcio.find(p => p.startTimestamp > adessoSecondi);
-
-    // ---- Prossima sessione F1 ----
     const prossimaF1 = f1.find(s => s.startTimestamp > adessoSecondi);
 
-    // ---- HERO: eventi nelle prossime 48 ore ----
-    const eventiHero = [];
-
     if (prossimaInter) {
-      eventiHero.push({
-        tipo: "calcio",
-        titolo: `${prossimaInter.home_team} – ${prossimaInter.away_team}`,
-        sottotitolo: prossimaInter.competizione,
-        timestamp: prossimaInter.startTimestamp,
-        durata: DURATA_CALCIO,
-        url: prossimaInter.destinazione?.tipo === "sito"
-          ? prossimaInter.destinazione.url
-          : "",
-      });
-    }
-
-    f1.forEach(s => {
-      const diff = s.startTimestamp * 1000 - Date.now();
-      if (diff > 0 && diff <= FINESTRA_HERO_MS) {
-        eventiHero.push({
-          tipo: "f1",
-          titolo: `${s.gp} – ${s.sessione}`,
-          sottotitolo: `${s.circuito}${s.localita ? ", " + s.localita : ""}`,
-          timestamp: s.startTimestamp,
-          durata: s.durata || 2 * 60 * 60,
-          url: s.destinazione?.url || "",
-        });
-      }
-    });
-
-    eventiHero.sort((a, b) => a.timestamp - b.timestamp);
-
-    if (eventiHero.length > 0) {
-      elHero.hidden = false;
-      elHeroList.innerHTML = eventiHero.map(e => `
-        <div class="hero-item ${e.tipo === "f1" ? "f1" : ""}">
-          <div class="info">
-            <div class="titolo">${e.titolo}</div>
-            <div class="sottotitolo">${e.sottotitolo}</div>
-          </div>
-          <div class="countdown"
-               data-ts="${e.timestamp}"
-               data-durata="${e.durata}"
-               data-url="${e.url}"></div>
-        </div>
-      `).join("");
-    }
-
-    // ---- SEZIONE INTER ----
-    if (prossimaInter) {
-      elSezioneInter.hidden = false;
       elCardInter.innerHTML = renderCardInter(prossimaInter);
+    } else {
+      elCardInter.innerHTML = `<p class="nota info">Nessuna partita in programma</p>`;
     }
 
-    // ---- SEZIONE F1 ----
     if (prossimaF1) {
-      elSezioneF1.hidden = false;
       elCardF1.innerHTML = renderCardF1(prossimaF1);
+    } else {
+      elCardF1.innerHTML = `<p class="nota info">Nessuna sessione in programma</p>`;
     }
 
     elStato.hidden = true;
+    elGriglia.hidden = false;
+
     avviaTuttiCountdown();
 
   } catch (err) {
@@ -231,23 +176,20 @@ function renderCardF1(s) {
 }
 
 // =====================================================
-// COUNTDOWN CON LOGICA EVENTI IN CORSO
+// COUNTDOWN CON LOGICA "EVENTI IN CORSO"
 // =====================================================
 function avviaTuttiCountdown() {
   function tick() {
     const adesso = Date.now();
-
-    // Prendi tutti gli elementi countdown
     const elementi = Array.from(document.querySelectorAll("[data-ts]"));
 
-    // Prima passata: quanti eventi sono in corso?
+    // Quanti eventi sono in corso in questo momento?
     const eventiInCorso = elementi.filter(el => {
       const ts = parseInt(el.dataset.ts, 10) * 1000;
       const durata = parseInt(el.dataset.durata, 10) * 1000;
       return adesso >= ts && adesso < ts + durata;
     });
 
-    // Seconda passata: aggiorna ogni elemento
     elementi.forEach(el => {
       const ts = parseInt(el.dataset.ts, 10) * 1000;
       const durata = parseInt(el.dataset.durata, 10) * 1000;
@@ -256,21 +198,21 @@ function avviaTuttiCountdown() {
       const statoPrecedente = statoElementi.get(el) || "";
 
       if (diff > 0) {
-        // ---- In attesa ----
+        // In attesa
         el.textContent = formattaCountdown(ts);
         statoElementi.set(el, "attesa");
 
       } else if (adesso < ts + durata) {
-        // ---- In corso ----
+        // In corso
 
-        // Caso 1: unico evento in corso con redirect → redirect automatico
+        // Unico evento in corso con redirect → redirect automatico
         if (eventiInCorso.length === 1 && url && !redirectEffettuato) {
           redirectEffettuato = true;
           window.location.replace(url);
           return;
         }
 
-        // Caso 2: più eventi in corso, oppure evento senza redirect
+        // Più eventi in corso, oppure evento senza redirect
         if (url) {
           if (statoPrecedente !== "bottone") {
             el.innerHTML = `<button class="btn-guarda">Guarda ora</button>`;
@@ -287,7 +229,7 @@ function avviaTuttiCountdown() {
         }
 
       } else {
-        // ---- Terminato ----
+        // Terminato
         if (statoPrecedente !== "terminato") {
           el.textContent = "terminato";
           statoElementi.set(el, "terminato");

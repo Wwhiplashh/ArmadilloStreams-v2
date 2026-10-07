@@ -7,10 +7,10 @@ RAPIDAPI_KEY = os.getenv("RAPIDAPI_KEY")
 RAPIDAPI_HOST = "sportapi7.p.rapidapi.com"
 INTER_TEAM_ID = 2697
 
-
 # --- CONFIGURAZIONE: URL DEL TUO SITO ---
-URL_SERIE_A     = "https://tuo-sito.example/serie-a"
-URL_CHAMPIONS   = "https://tuo-sito.example/champions"
+URL_SERIE_A   = "https://tuo-sito.example/serie-a"
+URL_CHAMPIONS = "https://tuo-sito.example/champions"
+
 
 def determina_destinazione(competizione, data_dt):
     comp = competizione.lower()
@@ -23,7 +23,8 @@ def determina_destinazione(competizione, data_dt):
             "messaggio": "",
         }
 
-    if "coppa italia" in comp:
+    if "coppa italia" in comp or "supercoppa" in comp:
+        # Entrambe in chiaro su Mediaset, nessun redirect
         return {
             "tipo": "tv",
             "servizio": "Mediaset",
@@ -46,22 +47,12 @@ def determina_destinazione(competizione, data_dt):
             "messaggio": "",
         }
 
-    if "supercoppa" in comp:
-        # ⚠️ Vedi domanda finale: per ora la tratto come Coppa Italia
-        return {
-            "tipo": "tv",
-            "servizio": "Mediaset",
-            "url": "",
-            "messaggio": "In chiaro su Mediaset: potrai guardarla in TV",
-        }
-
-# Fallback: competizione non riconosciuta → nessun redirect, solo avviso
-return {
-    "tipo": "sconosciuto",
-    "servizio": "",
-    "url": "",
-    "messaggio": "Questa partita non è disponibile sul nostro sito",
-}
+    # Fallback: competizione non riconosciuta → nessun redirect, solo avviso
+    return {
+        "tipo": "sconosciuto",
+        "servizio": "",
+        "url": "",
+        "messaggio": "Questa partita non è disponibile sul nostro sito",
     }
 
 
@@ -99,22 +90,20 @@ def fetch_inter_matches():
         if not timestamp:
             continue
 
-        # ⬇️ MODIFICA: salviamo il timestamp in millisecondi (come lo usa JS)
-        # e una data/ora ISO in UTC come backup leggibile
         data_dt_utc = datetime.fromtimestamp(timestamp, tz=timezone.utc)
         data_dt_locale = datetime.fromtimestamp(timestamp)  # per il calcolo TV
 
         competition = tournament.get("name", "Competizione sconosciuta")
         destinazione = determina_destinazione(competition, data_dt_locale)
-        
+
         home_id = home.get("id")
         away_id = away.get("id")
         home_logo = f"https://api.sofascore.app/api/v1/team/{home_id}/image" if home_id else ""
         away_logo = f"https://api.sofascore.app/api/v1/team/{away_id}/image" if away_id else ""
 
         partite.append({
-            "startTimestamp": timestamp,                # ⬅️ nuovo: numero Unix (secondi)
-            "startIso": data_dt_utc.isoformat(),        # ⬅️ nuovo: leggibile/ordinabile
+            "startTimestamp": timestamp,
+            "startIso": data_dt_utc.isoformat(),
             "home_team": home.get("name", ""),
             "away_team": away.get("name", ""),
             "home_logo": home_logo,
@@ -123,7 +112,6 @@ def fetch_inter_matches():
             "destinazione": destinazione,
         })
 
-    # Ordinamento per timestamp (numerico, a prova di fuso orario)
     partite.sort(key=lambda x: x["startTimestamp"])
 
     with open("calendar.json", "w", encoding="utf-8") as f:

@@ -19,79 +19,22 @@ body {
   background: radial-gradient(circle at top, var(--inter-blu-scuro) 0%, var(--inter-nero) 70%);
   color: var(--testo);
   min-height: 100vh;
-  padding: 24px 16px 48px;
+  padding: 32px 16px 48px;
 }
 
-#app { max-width: 640px; margin: 0 auto; }
+#app { max-width: 900px; margin: 0 auto; }
 
 /* =====================================================
-   HERO MULTI-EVENTO
+   GRIGLIA EVENTI (2 colonne su desktop, 1 su mobile)
    ===================================================== */
-.hero {
-  margin-bottom: 32px;
+.griglia-eventi {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: start;
 }
 
-.hero-title {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--testo-tenue);
-  margin-bottom: 16px;
-}
-
-.hero-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.hero-item {
-  background: linear-gradient(135deg, rgba(0, 104, 168, 0.2) 0%, rgba(0, 61, 102, 0.1) 100%);
-  border: 1px solid rgba(0, 104, 168, 0.4);
-  border-radius: 16px;
-  padding: 18px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-}
-
-.hero-item.f1 {
-  background: linear-gradient(135deg, rgba(225, 6, 0, 0.15) 0%, rgba(100, 0, 0, 0.08) 100%);
-  border-color: rgba(225, 6, 0, 0.4);
-}
-
-.hero-item .info { flex: 1; min-width: 0; }
-
-.hero-item .titolo {
-  font-size: 1rem;
-  font-weight: 700;
-  margin-bottom: 4px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.hero-item .sottotitolo {
-  font-size: 0.8rem;
-  color: var(--testo-tenue);
-}
-
-.hero-item .countdown {
-  font-size: 1.1rem;
-  font-weight: 700;
-  font-variant-numeric: tabular-nums;
-  color: #6cc4ff;
-  text-align: right;
-  flex-shrink: 0;
-}
-
-.hero-item.f1 .countdown { color: #ff6b6b; }
-
-/* =====================================================
-   SEZIONI
-   ===================================================== */
-.sezione { margin-bottom: 28px; }
+.sezione { min-width: 0; }
 
 .sezione-title {
   font-size: 0.85rem;
@@ -130,6 +73,7 @@ body {
   padding: 24px 20px;
   text-align: center;
   backdrop-filter: blur(6px);
+  min-height: 260px;
 }
 
 .card .competizione {
@@ -350,20 +294,24 @@ body {
   box-shadow: 0 6px 20px rgba(0, 104, 168, 0.4);
 }
 
-.hero-item.f1 .btn-guarda {
+.btn-guarda.f1 {
   background: linear-gradient(135deg, #e10600 0%, #8b0000 100%);
 }
 
-.hero-item.f1 .btn-guarda:hover {
+.btn-guarda.f1:hover {
   box-shadow: 0 6px 20px rgba(225, 6, 0, 0.4);
 }
 
 /* =====================================================
-   MOBILE
+   RESPONSIVE
    ===================================================== */
+@media (max-width: 720px) {
+  .griglia-eventi {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 380px) {
   .card .logo { width: 48px; height: 48px; }
-  .hero-item .titolo { font-size: 0.9rem; }
-  .hero-item .countdown { font-size: 1rem; }
   .countdown-box .countdown { font-size: 1.35rem; }
 }

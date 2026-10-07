@@ -8,19 +8,61 @@ RAPIDAPI_HOST = "sportapi7.p.rapidapi.com"
 INTER_TEAM_ID = 2697
 
 
-def determina_servizio(competizione, data_dt):
-    comp_lower = competizione.lower()
-    if "serie a" in comp_lower:
-        return "DAZN"
-    elif "coppa italia" in comp_lower:
-        return "Mediaset"
-    elif "champions league" in comp_lower:
-        if data_dt.weekday() == 2:
-            return "Prime Video"
-        return "Sky Sport Uno"
-    elif "supercoppa" in comp_lower:
-        return "Mediaset"
-    return "Generico"
+# --- CONFIGURAZIONE: URL DEL TUO SITO ---
+URL_SERIE_A     = "https://tuo-sito.example/serie-a"
+URL_CHAMPIONS   = "https://tuo-sito.example/champions"
+URL_SUPERCOPPA  = "https://tuo-sito.example/supercoppa"
+URL_GENERICO    = "https://tuo-sito.example"
+
+def determina_destinazione(competizione, data_dt):
+    comp = competizione.lower()
+
+    if "serie a" in comp:
+        return {
+            "tipo": "sito",
+            "servizio": "DAZN",
+            "url": URL_SERIE_A,
+            "messaggio": "",
+        }
+
+    if "coppa italia" in comp:
+        return {
+            "tipo": "tv",
+            "servizio": "Mediaset",
+            "url": "",
+            "messaggio": "In chiaro su Mediaset: potrai guardarla in TV",
+        }
+
+    if "champions league" in comp:
+        if data_dt.weekday() == 2:  # mercoledì
+            return {
+                "tipo": "esterno",
+                "servizio": "Prime Video",
+                "url": "",
+                "messaggio": "Esclusiva Prime Video: non sarà trasmessa sul nostro sito",
+            }
+        return {
+            "tipo": "sito",
+            "servizio": "Sky Sport Uno",
+            "url": URL_CHAMPIONS,
+            "messaggio": "",
+        }
+
+    if "supercoppa" in comp:
+        # ⚠️ Vedi domanda finale: per ora la tratto come Coppa Italia
+        return {
+            "tipo": "tv",
+            "servizio": "Mediaset",
+            "url": "",
+            "messaggio": "In chiaro su Mediaset: potrai guardarla in TV",
+        }
+
+    return {
+        "tipo": "sito",
+        "servizio": "Generico",
+        "url": URL_GENERICO,
+        "messaggio": "",
+    }
 
 
 def fetch_inter_matches():
@@ -63,8 +105,8 @@ def fetch_inter_matches():
         data_dt_locale = datetime.fromtimestamp(timestamp)  # per il calcolo TV
 
         competition = tournament.get("name", "Competizione sconosciuta")
-        servizio_tv = determina_servizio(competition, data_dt_locale)
-
+        destinazione = determina_destinazione(competition, data_dt_locale)
+        
         home_id = home.get("id")
         away_id = away.get("id")
         home_logo = f"https://api.sofascore.app/api/v1/team/{home_id}/image" if home_id else ""
@@ -78,7 +120,7 @@ def fetch_inter_matches():
             "home_logo": home_logo,
             "away_logo": away_logo,
             "competizione": competition,
-            "servizio": servizio_tv,
+            "destinazione": destinazione,
         })
 
     # Ordinamento per timestamp (numerico, a prova di fuso orario)

@@ -128,7 +128,6 @@ function renderCardInter(p) {
            data-durata="${DURATA_CALCIO}"
            data-url="${url}"></div>
     </div>
-    ${d.servizio ? `<div class="tv">📺 ${d.servizio}</div>` : ""}
     ${notaHtml}
   `;
 }
@@ -170,7 +169,6 @@ function renderCardF1(s) {
            data-durata="${durata}"
            data-url="${url}"></div>
     </div>
-    ${d.servizio ? `<div class="tv">📺 ${d.servizio}</div>` : ""}
     ${risultatiHtml}
   `;
 }

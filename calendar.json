@@ -263,10 +263,10 @@
     "away_logo": "https://api.sofascore.app/api/v1/team/2699/image",
     "competizione": "Super Cup",
     "destinazione": {
-      "tipo": "sconosciuto",
-      "servizio": "",
+      "tipo": "tv",
+      "servizio": "Mediaset",
       "url": "",
-      "messaggio": "Questa partita non è disponibile sul nostro sito"
+      "messaggio": "In chiaro su Mediaset: potrai guardarla in TV"
     }
   },
   {

@@ -1,11 +1,10 @@
 from datetime import datetime, timezone
 import json
-import os
 import requests
 
 # Jolpica F1 richiede uno User-Agent personalizzato
 HEADERS = {"User-Agent": "InterNextMatch/1.0"}
-BASE_URL = "https://api.jolpi.ca"
+BASE_URL = "https://api.jolpi.ca/ergast/f1"
 ANNO = 2026
 
 # --- CONFIGURAZIONE ---
@@ -17,7 +16,7 @@ DURATA_SPRINT = 60 * 60      # 1h
 DURATA_GARA = 2 * 60 * 60    # 2h
 
 
-def determina_destinazione_f1(codice_sessione):
+def determina_destinazione_f1():
     """Restituisce la destinazione per una sessione F1."""
     return {
         "tipo": "sito",
@@ -27,17 +26,34 @@ def determina_destinazione_f1(codice_sessione):
     }
 
 
-def durata_sessione(codice):
+def durata_sessione(tipo):
     return {
-        "QUALIFYING": DURATA_QUALIFICA,
-        "SPRINT": DURATA_SPRINT,
-        "RACE": DURATA_GARA,
-    }.get(codice, DURATA_GARA)
+        "Qualifica": DURATA_QUALIFICA,
+        "Sprint": DURATA_SPRINT,
+        "Gara": DURATA_GARA,
+    }.get(tipo, DURATA_GARA)
+
+
+def combina_data_ora(date_str, time_str):
+    """
+    Combina data ('2026-03-15') e ora ('14:00:00Z') in un datetime UTC.
+    Restituisce None se manca uno dei due.
+    """
+    if not date_str or not time_str:
+        return None
+    # time_str di solito finisce con "Z"; lo convertiamo in +00:00
+    time_clean = time_str.replace("Z", "+00:00")
+    iso = f"{date_str}T{time_clean}"
+    try:
+        return datetime.fromisoformat(iso)
+    except ValueError as e:
+        print(f"⚠️ Data non valida: {iso} ({e})")
+        return None
 
 
 def fetch_calendario_f1():
-    """Scarica il calendario F1 con tutte le sessioni."""
-    url = f"{BASE_URL}/f1/alpha/schedules/{ANNO}/"
+    """Scarica il calendario F1 con date delle sessioni."""
+    url = f"{BASE_URL}/{ANNO}/races/"
     try:
         r = requests.get(url, headers=HEADERS, timeout=15)
     except requests.RequestException as e:
@@ -49,17 +65,14 @@ def fetch_calendario_f1():
         return []
 
     data = r.json()
-    events = data.get("data", {}).get("events", [])
-    print(f"ℹ️ Round F1 trovati: {len(events)}")
-    return events
+    races = data.get("MRData", {}).get("RaceTable", {}).get("Races", [])
+    print(f"ℹ️ Round F1 trovati: {len(races)}")
+    return races
 
 
 def fetch_risultati_ferrari(round_number, sessione):
     """Scarica i risultati Ferrari per una sessione."""
-    url = (
-        f"{BASE_URL}/ergast/f1/{ANNO}/{round_number}"
-        f"/constructors/ferrari/{sessione}/"
-    )
+    url = f"{BASE_URL}/{ANNO}/{round_number}/constructors/ferrari/{sessione}/"
     try:
         r = requests.get(url, headers=HEADERS, timeout=10)
         if r.status_code != 200:
@@ -77,11 +90,11 @@ def fetch_risultati_ferrari(round_number, sessione):
 
         risultati = races[0].get(campo, [])
         out = []
-        for r in risultati:
-            driver = r.get("Driver", {})
+        for res in risultati:
+            driver = res.get("Driver", {})
             out.append({
                 "pilota": f"{driver.get('givenName', '')} {driver.get('familyName', '')}".strip(),
-                "posizione": r.get("position", ""),
+                "posizione": res.get("position", ""),
             })
         return out
     except Exception as e:
@@ -89,67 +102,91 @@ def fetch_risultati_ferrari(round_number, sessione):
         return []
 
 
-def determina_tipo_sessione(codice):
-    """Mappa i codici sessione Jolpica in etichette leggibili."""
-    return {
-        "RACE": "Gara",
-        "QUALIFYING": "Qualifica",
-        "SPRINT": "Sprint",
-    }.get(codice, codice)
-
-
 def fetch_f1():
-    events = fetch_calendario_f1()
-    if not events:
+    races = fetch_calendario_f1()
+    if not races:
         print("❌ Nessun evento F1 trovato.")
         return
 
     adesso = datetime.now(timezone.utc)
     sessioni = []
 
-    for event in events:
-        round_data = event.get("round", {})
-        round_number = round_data.get("number")
-        round_name = round_data.get("name", "GP")
-        circuit = event.get("circuit", {})
+    for race in races:
+        round_number = race.get("round")
+        race_name = race.get("raceName", "GP")
+        circuit = race.get("Circuit", {})
 
-        schedule = event.get("schedule", [])
-        for sess in schedule:
-            code = sess.get("code", "")
-            if code not in ("QUALIFYING", "SPRINT", "RACE"):
-                continue
-
-            timestamp_str = sess.get("timestamp")
-            if not timestamp_str:
-                continue
-
-            dt = datetime.fromisoformat(timestamp_str.replace("Z", "+00:00"))
-            ts = int(dt.timestamp())
-
-            endpoint = {
-                "QUALIFYING": "qualifying",
-                "SPRINT": "sprint",
-                "RACE": "results",
-            }[code]
-
-            risultati_ferrari = []
-            if ts <= adesso.timestamp():
-                risultati_ferrari = fetch_risultati_ferrari(round_number, endpoint)
-
+        # Sessione di Gara (sempre presente)
+        race_date = race.get("date")
+        race_time = race.get("time", "00:00:00Z")
+        race_dt = combina_data_ora(race_date, race_time)
+        if race_dt:
             sessioni.append({
                 "tipo": "f1",
-                "sessione": determina_tipo_sessione(code),
-                "codiceSessione": code,
-                "round": round_number,
-                "gp": round_name,
-                "circuito": circuit.get("name", ""),
-                "localita": circuit.get("locality", ""),
-                "paese": circuit.get("country", ""),
-                "startTimestamp": ts,
-                "startIso": dt.isoformat(),
-                "durata": durata_sessione(code),
-                "risultatiFerrari": risultati_ferrari,
-                "destinazione": determina_destinazione_f1(code),
+                "sessione": "Gara",
+                "codiceSessione": "RACE",
+                "round": int(round_number) if round_number else 0,
+                "gp": race_name,
+                "circuito": circuit.get("circuitName", ""),
+                "localita": circuit.get("Location", {}).get("locality", ""),
+                "paese": circuit.get("Location", {}).get("country", ""),
+                "startTimestamp": int(race_dt.timestamp()),
+                "startIso": race_dt.isoformat(),
+                "durata": DURATA_GARA,
+                "risultatiFerrari": (
+                    fetch_risultati_ferrari(round_number, "results")
+                    if race_dt.timestamp() <= adesso.timestamp()
+                    else []
+                ),
+                "destinazione": determina_destinazione_f1(),
+            })
+
+        # Qualifica
+        qual = race.get("Qualifying", {})
+        qual_dt = combina_data_ora(qual.get("date"), qual.get("time", "00:00:00Z"))
+        if qual_dt:
+            sessioni.append({
+                "tipo": "f1",
+                "sessione": "Qualifica",
+                "codiceSessione": "QUALIFYING",
+                "round": int(round_number) if round_number else 0,
+                "gp": race_name,
+                "circuito": circuit.get("circuitName", ""),
+                "localita": circuit.get("Location", {}).get("locality", ""),
+                "paese": circuit.get("Location", {}).get("country", ""),
+                "startTimestamp": int(qual_dt.timestamp()),
+                "startIso": qual_dt.isoformat(),
+                "durata": DURATA_QUALIFICA,
+                "risultatiFerrari": (
+                    fetch_risultati_ferrari(round_number, "qualifying")
+                    if qual_dt.timestamp() <= adesso.timestamp()
+                    else []
+                ),
+                "destinazione": determina_destinazione_f1(),
+            })
+
+        # Sprint (solo per weekend sprint)
+        sprint = race.get("Sprint", {})
+        sprint_dt = combina_data_ora(sprint.get("date"), sprint.get("time", "00:00:00Z"))
+        if sprint_dt:
+            sessioni.append({
+                "tipo": "f1",
+                "sessione": "Sprint",
+                "codiceSessione": "SPRINT",
+                "round": int(round_number) if round_number else 0,
+                "gp": race_name,
+                "circuito": circuit.get("circuitName", ""),
+                "localita": circuit.get("Location", {}).get("locality", ""),
+                "paese": circuit.get("Location", {}).get("country", ""),
+                "startTimestamp": int(sprint_dt.timestamp()),
+                "startIso": sprint_dt.isoformat(),
+                "durata": DURATA_SPRINT,
+                "risultatiFerrari": (
+                    fetch_risultati_ferrari(round_number, "sprint")
+                    if sprint_dt.timestamp() <= adesso.timestamp()
+                    else []
+                ),
+                "destinazione": determina_destinazione_f1(),
             })
 
     sessioni.sort(key=lambda x: x["startTimestamp"])

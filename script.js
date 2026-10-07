@@ -28,6 +28,7 @@ const elAwayNome     = document.getElementById("away-nome");
 const elDataOra      = document.getElementById("data-ora");
 const elCountdown    = document.getElementById("countdown");
 const elTv           = document.getElementById("tv");
+const elNota         = document.getElementById("nota");
 
 // =====================================================
 // FUNZIONE PRINCIPALE
@@ -64,8 +65,7 @@ async function init() {
     mostraPartita(prossima);
 
     // 4. Avvia il countdown
-    avviaCountdown(prossima.startTimestamp);
-
+    avviaCountdown(prossima);   
   } catch (err) {
     console.error(err);
     mostraErrore(err.message);
@@ -95,7 +95,22 @@ function mostraPartita(p) {
     minute: "2-digit",
   });
 
-  elTv.textContent = p.servizio ? `📺 ${p.servizio}` : "";
+  const d = p.destinazione || {};
+
+elTv.textContent = d.servizio ? `📺 ${d.servizio}` : "";
+
+// Mostra subito un avviso se NON sarà trasmessa sul sito
+if (d.tipo === "esterno") {
+  elNota.textContent = "⚠️ " + (d.messaggio || "Non disponibile sul nostro sito");
+  elNota.className = "nota";
+  elNota.hidden = false;
+} else if (d.tipo === "tv") {
+  elNota.textContent = "📡 " + (d.messaggio || "In chiaro in TV");
+  elNota.className = "nota tv";
+  elNota.hidden = false;
+} else {
+  elNota.hidden = true;
+}
 
   // Nascondi lo stato "caricamento" e mostra la card
   elStato.hidden = true;
@@ -106,17 +121,29 @@ function mostraPartita(p) {
 // COUNTDOWN
 // =====================================================
 
-function avviaCountdown(startTimestampSecondi) {
-  const inizioMs = startTimestampSecondi * 1000;
+function avviaCountdown(partita) {
+  const inizioMs = partita.startTimestamp * 1000;
+  const d = partita.destinazione || {};
 
   function tick() {
     const diff = inizioMs - Date.now() - MARGINE_MS;
 
-    // Partita iniziata → redirect immediato
     if (diff <= 0) {
-      window.location.replace(URL_DESTINAZIONE);
+      if (d.tipo === "sito" && d.url) {
+        // Trasmessa sul tuo sito → redirect
+        window.location.replace(d.url);
+      } else {
+        // Non trasmessa sul sito: mostra avviso, nessun redirect
+        mostraAvvisoFinale(d);
+      }
       return;
     }
+    // ... resto invariato (calcolo giorni/ore/minuti/secondi)
+  }
+
+  tick();
+  setInterval(tick, 1000);
+}
 
     // Calcolo giorni/ore/minuti/secondi
     const giorni   = Math.floor(diff / (1000 * 60 * 60 * 24));
@@ -141,6 +168,20 @@ function formatta(g, h, m, s) {
   return parti.join(" ");
 }
 
+function mostraAvvisoFinale(d) {
+  const box = document.querySelector(".countdown-box");
+  box.classList.add("avviso");
+
+  const label = box.querySelector(".label");
+  const countEl = document.getElementById("countdown");
+
+  label.textContent = "La partita è iniziata!";
+  countEl.textContent = d.messaggio || "Non disponibile sul nostro sito";
+  countEl.style.fontSize = "1.05rem";
+
+  // Ferma eventuali ulteriori tick
+  // (lo facciamo semplicemente non chiamando più il redirect)
+}
 // =====================================================
 // ERRORE
 // =====================================================

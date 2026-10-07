@@ -133,3 +133,24 @@ body {
   .logo { width: 52px; height: 52px; }
   .countdown { font-size: 1.35rem; }
 }
+.nota {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: rgba(255, 200, 0, 0.08);
+  border: 1px solid rgba(255, 200, 0, 0.25);
+  color: #ffd97a;
+}
+
+.nota.tv {
+  background: rgba(0, 200, 100, 0.08);
+  border-color: rgba(0, 200, 100, 0.3);
+  color: #7fe0aa;
+}
+
+/* Stato "partita iniziata ma niente redirect" */
+.countdown-box.avviso {
+  background: rgba(255, 200, 0, 0.1);
+  border-color: rgba(255, 200, 0, 0.4);
+}

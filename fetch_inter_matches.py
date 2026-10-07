@@ -23,7 +23,7 @@ def determina_destinazione(competizione, data_dt):
             "messaggio": "",
         }
 
-    if "coppa italia" in comp or "supercoppa" in comp:
+    if "coppa italia" in comp or "supercoppa" in comp or "super cup" in comp:
         # Entrambe in chiaro su Mediaset, nessun redirect
         return {
             "tipo": "tv",

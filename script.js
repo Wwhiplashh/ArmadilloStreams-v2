@@ -178,6 +178,9 @@ function renderCardF1(s) {
 // =====================================================
 // COUNTDOWN CON LOGICA "EVENTI IN CORSO"
 // =====================================================
+// =====================================================
+// COUNTDOWN CON LOGICA "EVENTI IN CORSO"
+// =====================================================
 function avviaTuttiCountdown() {
   function tick() {
     const adesso = Date.now();
@@ -190,29 +193,49 @@ function avviaTuttiCountdown() {
       return adesso >= ts && adesso < ts + durata;
     });
 
+    // Se ci sono 2+ eventi in corso, marca TUTTI come "no redirect auto"
+    // Il flag resta per tutta la durata dell'evento, anche se poi l'altro finisce
+    if (eventiInCorso.length > 1) {
+      eventiInCorso.forEach(e => {
+        e.dataset.noAutoRedirect = "true";
+      });
+    }
+
     elementi.forEach(el => {
       const ts = parseInt(el.dataset.ts, 10) * 1000;
       const durata = parseInt(el.dataset.durata, 10) * 1000;
       const url = el.dataset.url || "";
+      const noAuto = el.dataset.noAutoRedirect === "true";
       const diff = ts - adesso;
       const statoPrecedente = statoElementi.get(el) || "";
 
       if (diff > 0) {
-        // In attesa
+        // ---- In attesa ----
         el.textContent = formattaCountdown(ts);
         statoElementi.set(el, "attesa");
 
       } else if (adesso < ts + durata) {
-        // In corso
+        // ---- In corso ----
 
-        // Unico evento in corso con redirect → redirect automatico
-        if (eventiInCorso.length === 1 && url && !redirectEffettuato) {
+        // Redirect automatico SOLO se:
+        //   - è l'unico evento in corso
+        //   - non è mai stato in sovrapposizione
+        //   - il redirect non è già stato fatto
+        //   - l'evento ha un URL
+        const puoRedirectAuto = (
+          eventiInCorso.length === 1 &&
+          !noAuto &&
+          url &&
+          !redirectEffettuato
+        );
+
+        if (puoRedirectAuto) {
           redirectEffettuato = true;
           window.location.replace(url);
           return;
         }
 
-        // Più eventi in corso, oppure evento senza redirect
+        // Altrimenti: mostra bottone (se c'è URL) o "in corso"
         if (url) {
           if (statoPrecedente !== "bottone") {
             el.innerHTML = `<button class="btn-guarda">Guarda ora</button>`;
@@ -229,7 +252,7 @@ function avviaTuttiCountdown() {
         }
 
       } else {
-        // Terminato
+        // ---- Terminato ----
         if (statoPrecedente !== "terminato") {
           el.textContent = "terminato";
           statoElementi.set(el, "terminato");

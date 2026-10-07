@@ -57,11 +57,13 @@ def determina_destinazione(competizione, data_dt):
             "messaggio": "In chiaro su Mediaset: potrai guardarla in TV",
         }
 
-    return {
-        "tipo": "sito",
-        "servizio": "Generico",
-        "url": URL_GENERICO,
-        "messaggio": "",
+# Fallback: competizione non riconosciuta → nessun redirect, solo avviso
+return {
+    "tipo": "sconosciuto",
+    "servizio": "",
+    "url": "",
+    "messaggio": "Questa partita non è disponibile sul nostro sito",
+}
     }
 
 

@@ -154,3 +154,9 @@ body {
   background: rgba(255, 200, 0, 0.1);
   border-color: rgba(255, 200, 0, 0.4);
 }
+
+.nota.info {
+  background: rgba(120, 170, 255, 0.08);
+  border-color: rgba(120, 170, 255, 0.3);
+  color: #a7c4ff;
+}

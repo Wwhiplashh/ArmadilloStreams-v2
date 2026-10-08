@@ -59,10 +59,9 @@ body {
 .card .competizione,
 .card .f1-sessione {
   display: inline-block;
-  font-size: 0.7rem;
+  font-size: 0.8rem;              /* ⬅️ leggermente più grande: il minuscolo a 0.7rem è troppo piccolo */
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.03em;         /* ⬅️ ridotto: 0.12em era pensato per il maiuscolo */
   padding: 4px 10px;
   border-radius: 20px;
   margin-bottom: 18px;
@@ -155,9 +154,8 @@ body {
 }
 
 .countdown-box .label {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
+  font-size: 0.8rem;          /* ⬅️ leggermente più grande */
+  letter-spacing: 0.05em;     /* ⬅️ ridotto: con il minuscolo, 0.15em era troppo largo */
   color: var(--testo-tenue);
   margin-bottom: 8px;
 }

@@ -60,6 +60,7 @@ body {
 .card .f1-sessione {
   display: inline-block;
   font-size: 0.7rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.12em;
   padding: 4px 10px;
@@ -111,7 +112,7 @@ body {
 
 .card .nome {
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.2;
 }
 
@@ -135,6 +136,7 @@ body {
 /* --- Riga 3: data --- */
 .card .data-ora {
   font-size: 0.9rem;
+  font-weight: 700;
   color: var(--testo-tenue);
   margin-bottom: 16px;
 }

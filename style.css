@@ -121,7 +121,7 @@ body {
 
 .card .vs {
   font-size: 0.75rem;
-  color: var(--testo-tenue);
+  color: inherit;
   letter-spacing: 0.15em;
 }
 

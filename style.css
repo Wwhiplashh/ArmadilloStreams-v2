@@ -113,6 +113,10 @@ body {
   font-size: 0.9rem;
   font-weight: 700;
   line-height: 1.2;
+  min-height: 2.4em;              /* ⬅️ riserva spazio per 2 righe */
+  display: flex;
+  align-items: center;            /* centra verticalmente il testo nello spazio */
+  justify-content: center;
 }
 
 .card .vs {

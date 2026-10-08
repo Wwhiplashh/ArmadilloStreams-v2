@@ -310,20 +310,33 @@ body {
     height: 68px;
   }
   .card .nome {
-    font-size: 1rem;
+    font-size: 1.1rem;
+  }
+  .card .vs {
+    font-size: 0.85rem;
   }
   .card .f1-gp {
-    font-size: 1.35rem;
+    font-size: 1.6rem;
   }
-  .card .data-ora {
+  .card .f1-luogo {
     font-size: 1rem;
   }
+  .card .data-ora {
+    font-size: 1.15rem;
+  }
   .countdown-box .countdown {
-    font-size: 1.9rem;
+    font-size: 2rem;
+  }
+  .countdown-box .label {
+    font-size: 0.95rem;
+  }
+  .card .competizione,
+  .card .f1-sessione {
+    font-size: 0.9rem;
   }
   .card .squadre,
   .card .f1-header {
-    min-height: 150px;
+    min-height: 165px;
   }
   .griglia-eventi {
     gap: 28px;
@@ -344,34 +357,37 @@ body {
     height: 88px;
   }
   .card .nome {
-    font-size: 1.15rem;
+    font-size: 1.3rem;
+  }
+  .card .vs {
+    font-size: 1rem;
   }
   .card .f1-gp {
-    font-size: 1.65rem;
+    font-size: 2rem;
+  }
+  .card .f1-luogo {
+    font-size: 1.1rem;
   }
   .card .data-ora {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
   }
   .countdown-box .countdown {
     font-size: 2.5rem;
   }
   .countdown-box .label {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
   .card .competizione,
   .card .f1-sessione {
-    font-size: 0.9rem;
+    font-size: 1rem;
     padding: 6px 14px;
   }
   .card .squadre,
   .card .f1-header {
-    min-height: 190px;
+    min-height: 200px;
   }
   .griglia-eventi {
     gap: 36px;
-  }
-  .card .f1-luogo {
-    font-size: 0.95rem;
   }
 }
 

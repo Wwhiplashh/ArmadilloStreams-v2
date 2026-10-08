@@ -137,7 +137,7 @@ body {
 .card .data-ora {
   font-size: 0.9rem;
   font-weight: 700;
-  color: var(--testo-tenue);
+  color: inherit;                /* ⬅️ era var(--testo-tenue) */
   margin-bottom: 16px;
 }
 

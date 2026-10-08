@@ -4,19 +4,27 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --inter-blu: #0068a8;
-  --inter-blu-scuro: #003d66;
-  --inter-nero: #0a0e14;
-  --f1-rosso: #e10600;
-  --testo: #f5f7fa;
-  --testo-tenue: #a8b2c1;
-  --card-bg: rgba(255, 255, 255, 0.05);
-  --card-border: rgba(255, 255, 255, 0.08);
+  /* Palette Cream & Gold */
+  --oro: #D4A017;
+  --oro-scuro: #A67C00;
+  --oro-chiaro: #F5E6C8;
+  --rosso: #C8392B;
+  --rosso-chiaro: #FAE0DC;
+
+  --sfondo: #FBF6EC;
+  --card-bg: #FFFFFF;
+  --card-border: #EDE3D0;
+
+  --testo: #2C1E0F;
+  --testo-tenue: #7A6854;
+
+  --ombra-card: 0 10px 30px rgba(180, 140, 60, 0.12);
+  --ombra-card-hover: 0 14px 40px rgba(180, 140, 60, 0.18);
 }
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background: radial-gradient(circle at top, var(--inter-blu-scuro) 0%, var(--inter-nero) 70%);
+  background: var(--sfondo);
   color: var(--testo);
   min-height: 100vh;
   padding: 32px 16px;
@@ -54,11 +62,12 @@ body {
   border-radius: 18px;
   padding: 24px 20px;
   text-align: center;
-  backdrop-filter: blur(6px);
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: var(--ombra-card);
+  transition: box-shadow 0.2s ease;
 }
 
 /* --- Riga 1: badge competizione/sessione --- */
@@ -74,13 +83,13 @@ body {
 }
 
 .card .competizione {
-  background: rgba(0, 104, 168, 0.25);
-  color: #6cc4ff;
+  background: var(--oro-chiaro);
+  color: var(--oro-scuro);
 }
 
 .card .f1-sessione {
-  background: rgba(225, 6, 0, 0.2);
-  color: #ff6b6b;
+  background: var(--rosso-chiaro);
+  color: var(--rosso);
 }
 
 /* --- Riga 2: contenuto centrale (squadre per Inter, GP per F1) --- */
@@ -127,7 +136,7 @@ body {
 
 .card .vs {
   font-size: 0.75rem;
-  color: inherit;
+  color: var(--testo-tenue);
   letter-spacing: 0.15em;
 }
 
@@ -154,8 +163,8 @@ body {
    COUNTDOWN BOX
    ===================================================== */
 .countdown-box {
-  background: rgba(0, 104, 168, 0.15);
-  border: 1px solid rgba(0, 104, 168, 0.4);
+  background: #FDF8ED;
+  border: 1px solid #E8D5A8;
   border-radius: 14px;
   padding: 18px;
   margin-bottom: 18px;
@@ -174,12 +183,17 @@ body {
   font-size: 1.6rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  color: #6cc4ff;
+  color: var(--oro-scuro);
+}
+
+/* Variante F1 (solo testo rosso, box identico) */
+#sezione-f1 .countdown-box .countdown {
+  color: var(--rosso);
 }
 
 .countdown-box.avviso {
-  background: rgba(255, 200, 0, 0.1);
-  border-color: rgba(255, 200, 0, 0.4);
+  background: #FFF4D6;
+  border-color: #E8B84B;
 }
 
 /* =====================================================
@@ -190,22 +204,22 @@ body {
   font-size: 0.8rem;
   padding: 8px 12px;
   border-radius: 10px;
-  background: rgba(255, 200, 0, 0.08);
-  border: 1px solid rgba(255, 200, 0, 0.25);
-  color: #ffd97a;
+  background: #FDF4DE;
+  border: 1px solid #E8D5A8;
+  color: #8B6914;
   width: 100%;
 }
 
 .card .nota.tv {
-  background: rgba(0, 200, 100, 0.08);
-  border-color: rgba(0, 200, 100, 0.3);
-  color: #7fe0aa;
+  background: #E6F6EC;
+  border-color: #B8E0C5;
+  color: #1F7A44;
 }
 
 .card .nota.info {
-  background: rgba(120, 170, 255, 0.08);
-  border-color: rgba(120, 170, 255, 0.3);
-  color: #a7c4ff;
+  background: #E8EFFA;
+  border-color: #B8C8E8;
+  color: #2F5A9C;
 }
 
 /* =====================================================
@@ -214,7 +228,7 @@ body {
 .card .f1-risultati {
   margin-top: 16px;
   padding-top: 16px;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid var(--card-border);
   width: 100%;
 }
 
@@ -235,7 +249,7 @@ body {
 
 .card .ferrari-row .pos {
   font-weight: 700;
-  color: #ff6b6b;
+  color: var(--rosso);
 }
 
 /* =====================================================
@@ -250,13 +264,14 @@ body {
 .errore p:first-child {
   font-size: 1.1rem;
   margin-bottom: 8px;
+  color: var(--testo);
 }
 
 .spinner {
   width: 36px;
   height: 36px;
-  border: 3px solid rgba(255, 255, 255, 0.15);
-  border-top-color: var(--inter-blu);
+  border: 3px solid #EDE3D0;
+  border-top-color: var(--oro);
   border-radius: 50%;
   margin: 0 auto 16px;
   animation: spin 0.8s linear infinite;
@@ -274,8 +289,8 @@ body {
   padding: 10px 20px;
   font-size: 0.9rem;
   font-weight: 700;
-  color: #fff;
-  background: linear-gradient(135deg, var(--inter-blu) 0%, var(--inter-blu-scuro) 100%);
+  color: #FFFFFF;
+  background: linear-gradient(135deg, var(--oro) 0%, var(--oro-scuro) 100%);
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -285,22 +300,20 @@ body {
 
 .btn-guarda:hover {
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(0, 104, 168, 0.4);
+  box-shadow: 0 6px 20px rgba(212, 160, 23, 0.4);
 }
 
 .btn-guarda.f1 {
-  background: linear-gradient(135deg, #e10600 0%, #8b0000 100%);
+  background: linear-gradient(135deg, #D94032 0%, var(--rosso) 100%);
 }
 
 .btn-guarda.f1:hover {
-  box-shadow: 0 6px 20px rgba(225, 6, 0, 0.4);
+  box-shadow: 0 6px 20px rgba(200, 57, 43, 0.4);
 }
 
 /* =====================================================
-   RESPONSIVE
+   RESPONSIVE — TABLET
    ===================================================== */
-
-/* Tablet: ingrandisci leggermente */
 @media (min-width: 720px) {
   .card {
     padding: 32px 26px;
@@ -343,7 +356,9 @@ body {
   }
 }
 
-/* Desktop: ingrandisci ancora e allarga */
+/* =====================================================
+   RESPONSIVE — DESKTOP
+   ===================================================== */
 @media (min-width: 1100px) {
   #app {
     max-width: 1200px;
@@ -391,7 +406,9 @@ body {
   }
 }
 
-/* Mobile stretto: rimpicciolisci ancora */
+/* =====================================================
+   RESPONSIVE — MOBILE STRETTO
+   ===================================================== */
 @media (max-width: 380px) {
   .card .logo {
     width: 48px;

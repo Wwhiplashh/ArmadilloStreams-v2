@@ -123,7 +123,7 @@ function renderCardInter(p) {
     </div>
     <div class="data-ora">${formattaDataOra(p.startTimestamp)}</div>
     <div class="countdown-box">
-      <div class="label">Manca</div>
+      <div class="label">Inizio tra:</div>
       <div class="countdown"
            data-ts="${p.startTimestamp}"
            data-durata="${DURATA_CALCIO}"
@@ -164,7 +164,7 @@ function renderCardF1(s) {
     </div>
     <div class="data-ora">${formattaDataOra(s.startTimestamp)}</div>
     <div class="countdown-box">
-      <div class="label">Manca</div>
+      <div class="label">Inizio ${s.sessione} tra:</div>
       <div class="countdown"
            data-ts="${s.startTimestamp}"
            data-durata="${durata}"

@@ -19,10 +19,16 @@ body {
   background: radial-gradient(circle at top, var(--inter-blu-scuro) 0%, var(--inter-nero) 70%);
   color: var(--testo);
   min-height: 100vh;
-  padding: 32px 16px 48px;
+  padding: 32px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#app { max-width: 900px; margin: 0 auto; }
+#app {
+  width: 100%;
+  max-width: 900px;
+}
 
 /* =====================================================
    GRIGLIA EVENTI (2 colonne, card stessa altezza)
@@ -59,9 +65,9 @@ body {
 .card .competizione,
 .card .f1-sessione {
   display: inline-block;
-  font-size: 0.8rem;              /* ⬅️ leggermente più grande: il minuscolo a 0.7rem è troppo piccolo */
+  font-size: 0.8rem;
   font-weight: 700;
-  letter-spacing: 0.03em;         /* ⬅️ ridotto: 0.12em era pensato per il maiuscolo */
+  letter-spacing: 0.03em;
   padding: 4px 10px;
   border-radius: 20px;
   margin-bottom: 18px;
@@ -113,15 +119,15 @@ body {
   font-size: 0.9rem;
   font-weight: 700;
   line-height: 1.2;
-  min-height: 2.4em;              /* ⬅️ riserva spazio per 2 righe */
+  min-height: 2.4em;
   display: flex;
-  align-items: center;            /* centra verticalmente il testo nello spazio */
+  align-items: center;
   justify-content: center;
 }
 
 .card .vs {
   font-size: 0.75rem;
-  color: inherit;
+  color: var(--testo-tenue);
   letter-spacing: 0.15em;
 }
 
@@ -140,7 +146,7 @@ body {
 .card .data-ora {
   font-size: 0.9rem;
   font-weight: 700;
-  color: inherit;                /* ⬅️ era var(--testo-tenue) */
+  color: inherit;
   margin-bottom: 16px;
 }
 
@@ -158,8 +164,8 @@ body {
 }
 
 .countdown-box .label {
-  font-size: 0.8rem;          /* ⬅️ leggermente più grande */
-  letter-spacing: 0.05em;     /* ⬅️ ridotto: con il minuscolo, 0.15em era troppo largo */
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
   color: var(--testo-tenue);
   margin-bottom: 8px;
 }
@@ -293,13 +299,89 @@ body {
 /* =====================================================
    RESPONSIVE
    ===================================================== */
-@media (max-width: 720px) {
+
+/* Tablet: ingrandisci leggermente */
+@media (min-width: 720px) {
+  .card {
+    padding: 32px 26px;
+  }
+  .card .logo {
+    width: 68px;
+    height: 68px;
+  }
+  .card .nome {
+    font-size: 1rem;
+  }
+  .card .f1-gp {
+    font-size: 1.35rem;
+  }
+  .card .data-ora {
+    font-size: 1rem;
+  }
+  .countdown-box .countdown {
+    font-size: 1.9rem;
+  }
+  .card .squadre,
+  .card .f1-header {
+    min-height: 150px;
+  }
   .griglia-eventi {
-    grid-template-columns: 1fr;
+    gap: 28px;
   }
 }
 
+/* Desktop: ingrandisci ancora e allarga */
+@media (min-width: 1100px) {
+  #app {
+    max-width: 1200px;
+  }
+  .card {
+    padding: 40px 36px;
+    border-radius: 24px;
+  }
+  .card .logo {
+    width: 88px;
+    height: 88px;
+  }
+  .card .nome {
+    font-size: 1.15rem;
+  }
+  .card .f1-gp {
+    font-size: 1.65rem;
+  }
+  .card .data-ora {
+    font-size: 1.1rem;
+  }
+  .countdown-box .countdown {
+    font-size: 2.5rem;
+  }
+  .countdown-box .label {
+    font-size: 0.9rem;
+  }
+  .card .competizione,
+  .card .f1-sessione {
+    font-size: 0.9rem;
+    padding: 6px 14px;
+  }
+  .card .squadre,
+  .card .f1-header {
+    min-height: 190px;
+  }
+  .griglia-eventi {
+    gap: 36px;
+  }
+  .card .f1-luogo {
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile stretto: rimpicciolisci ancora */
 @media (max-width: 380px) {
-  .card .logo { width: 48px; height: 48px; }
-  .countdown-box .countdown { font-size: 1.35rem; }
+  .card .logo {
+    width: 48px;
+    height: 48px;
+  }
+  .countdown-box .countdown {
+    font-size: 1.35rem;
+  }
 }

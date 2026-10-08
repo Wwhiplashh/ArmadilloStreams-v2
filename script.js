@@ -43,18 +43,24 @@ function formattaCountdown(tsMs) {
 
 function formattaDataOra(tsSecondi) {
   const data = new Date(tsSecondi * 1000);
-  const testo = data.toLocaleString("it-IT", {
+
+  const dataStr = data.toLocaleDateString("it-IT", {
     weekday: "long",
     day: "numeric",
     month: "long",
+  });
+
+  const oraStr = data.toLocaleTimeString("it-IT", {
     hour: "2-digit",
     minute: "2-digit",
   });
-  // "sabato 10 ottobre, 18:00" → "Sabato 10 ottobre 18:00"
-  return testo
-    .replace(",", "")
-    .replace(/^./, c => c.toUpperCase());
+
+  // "sabato 10 ottobre" → "Sabato 10 ottobre"
+  const dataCap = dataStr.charAt(0).toUpperCase() + dataStr.slice(1);
+
+  return `${dataCap} ${oraStr}`;
 }
+
 // =====================================================
 // INIT
 // =====================================================

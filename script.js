@@ -32,12 +32,13 @@ function formattaCountdown(tsMs) {
   const m = Math.floor((diff / (1000 * 60)) % 60);
   const s = Math.floor((diff / 1000) % 60);
 
-  const parti = [];
-  if (g > 0) parti.push(`${g}g`);
-  parti.push(`${String(h).padStart(2, "0")}h`);
-  parti.push(`${String(m).padStart(2, "0")}m`);
-  parti.push(`${String(s).padStart(2, "0")}s`);
-  return parti.join(" ");
+  // Se manca almeno 1 giorno: niente secondi
+  if (g > 0) {
+    return `${g}g ${String(h).padStart(2, "0")}h ${String(m).padStart(2, "0")}m`;
+  }
+
+  // Sotto le 24 ore: ore + minuti + secondi
+  return `${String(h).padStart(2, "0")}h ${String(m).padStart(2, "0")}m ${String(s).padStart(2, "0")}s`;
 }
 
 function formattaDataOra(tsSecondi) {

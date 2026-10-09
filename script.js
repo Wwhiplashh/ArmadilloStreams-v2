@@ -165,6 +165,7 @@ function renderCardInter(p) {
 // =====================================================
 function renderCardF1(s) {
   let risultatiHtml = "";
+
   if (s.risultatiFerrari && s.risultatiFerrari.length > 0) {
     // Per la Sprint abbiamo anche la griglia (dalla Qualifica Sprint)
     const isSprint = s.sessione === "Sprint";
@@ -201,6 +202,28 @@ function renderCardF1(s) {
     `;
   }
 
+  const d = s.destinazione || {};
+  const url = d.url || "";
+  const durata = s.durata || 2 * 60 * 60;
+
+  return `
+    <div class="f1-sessione">${s.sessione}</div>
+    <div class="f1-header">
+      <div class="f1-gp">${s.gp}</div>
+      <div class="f1-luogo">${s.circuito}${s.localita ? ", " + s.localita : ""}</div>
+    </div>
+    <div class="data-ora">${formattaDataOra(s.startTimestamp)}</div>
+    <div class="countdown-box">
+      <div class="label">Inizio ${s.sessione} tra:</div>
+      <div class="countdown"
+           data-ts="${s.startTimestamp}"
+           data-durata="${durata}"
+           data-url="${url}"></div>
+    </div>
+    ${risultatiHtml}
+  `;
+}
+
 // =====================================================
 // COUNTDOWN CON LOGICA "EVENTI IN CORSO"
 // =====================================================
@@ -217,7 +240,6 @@ function avviaTuttiCountdown() {
     });
 
     // Se ci sono 2+ eventi in corso, marca TUTTI come "no redirect auto"
-    // Il flag resta per tutta la durata dell'evento, anche se poi l'altro finisce
     if (eventiInCorso.length > 1) {
       eventiInCorso.forEach(e => {
         e.dataset.noAutoRedirect = "true";
@@ -240,11 +262,6 @@ function avviaTuttiCountdown() {
       } else if (adesso < ts + durata) {
         // ---- In corso ----
 
-        // Redirect automatico SOLO se:
-        //   - è l'unico evento in corso
-        //   - non è mai stato in sovrapposizione
-        //   - il redirect non è già stato fatto
-        //   - l'evento ha un URL
         const puoRedirectAuto = (
           eventiInCorso.length === 1 &&
           !noAuto &&
@@ -258,7 +275,6 @@ function avviaTuttiCountdown() {
           return;
         }
 
-        // Altrimenti: mostra bottone (se c'è URL) o "in corso"
         if (url) {
           if (statoPrecedente !== "bottone") {
             el.innerHTML = `<button class="btn-guarda">Guarda ora</button>`;

@@ -73,17 +73,35 @@ async function init() {
 
     const adessoSecondi = Date.now() / 1000;
 
-    const prossimaInter = calcio.find(p => p.startTimestamp > adessoSecondi);
-    const prossimaF1 = f1.find(s => s.startTimestamp > adessoSecondi);
+    // --- INTER: prima cerca quella in corso, poi la prossima futura ---
+    let daMostrareInter = calcio.find(p => {
+      return p.startTimestamp <= adessoSecondi &&
+             adessoSecondi < p.startTimestamp + DURATA_CALCIO;
+    });
+    if (!daMostrareInter) {
+      daMostrareInter = calcio.find(p => p.startTimestamp > adessoSecondi);
+    }
 
-    if (prossimaInter) {
-      elCardInter.innerHTML = renderCardInter(prossimaInter);
+    // --- F1: prima cerca quella in corso, poi la prossima futura ---
+    let daMostrareF1 = f1.find(s => {
+      const durata = s.durata || 2 * 60 * 60;
+      return s.startTimestamp <= adessoSecondi &&
+             adessoSecondi < s.startTimestamp + durata;
+    });
+    if (!daMostrareF1) {
+      daMostrareF1 = f1.find(s => s.startTimestamp > adessoSecondi);
+    }
+
+    // --- Rendering card Inter ---
+    if (daMostrareInter) {
+      elCardInter.innerHTML = renderCardInter(daMostrareInter);
     } else {
       elCardInter.innerHTML = `<p class="nota info">Nessuna partita in programma</p>`;
     }
 
-    if (prossimaF1) {
-      elCardF1.innerHTML = renderCardF1(prossimaF1);
+    // --- Rendering card F1 ---
+    if (daMostrareF1) {
+      elCardF1.innerHTML = renderCardF1(daMostrareF1);
     } else {
       elCardF1.innerHTML = `<p class="nota info">Nessuna sessione in programma</p>`;
     }

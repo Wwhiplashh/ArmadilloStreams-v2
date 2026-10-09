@@ -92,11 +92,13 @@
     "risultatiFerrari": [
       {
         "pilota": "Charles Leclerc",
-        "posizione": "2"
+        "posizione": "2",
+        "griglia": "6"
       },
       {
         "pilota": "Lewis Hamilton",
-        "posizione": "3"
+        "posizione": "3",
+        "griglia": "4"
       }
     ],
     "destinazione": {
@@ -257,11 +259,13 @@
     "risultatiFerrari": [
       {
         "pilota": "Charles Leclerc",
-        "posizione": "3"
+        "posizione": "3",
+        "griglia": "4"
       },
       {
         "pilota": "Lewis Hamilton",
-        "posizione": "7"
+        "posizione": "7",
+        "griglia": "7"
       }
     ],
     "destinazione": {
@@ -364,11 +368,13 @@
     "risultatiFerrari": [
       {
         "pilota": "Charles Leclerc",
-        "posizione": "5"
+        "posizione": "5",
+        "griglia": "6"
       },
       {
         "pilota": "Lewis Hamilton",
-        "posizione": "6"
+        "posizione": "6",
+        "griglia": "5"
       }
     ],
     "destinazione": {
@@ -645,11 +651,13 @@
     "risultatiFerrari": [
       {
         "pilota": "Lewis Hamilton",
-        "posizione": "2"
+        "posizione": "2",
+        "griglia": "1"
       },
       {
         "pilota": "Charles Leclerc",
-        "posizione": "5"
+        "posizione": "5",
+        "griglia": "4"
       }
     ],
     "destinazione": {
@@ -868,11 +876,13 @@
     "risultatiFerrari": [
       {
         "pilota": "Charles Leclerc",
-        "posizione": "2"
+        "posizione": "2",
+        "griglia": "3"
       },
       {
         "pilota": "Lewis Hamilton",
-        "posizione": "7"
+        "posizione": "7",
+        "griglia": "7"
       }
     ],
     "destinazione": {
@@ -1068,7 +1078,16 @@
     "startTimestamp": 1790337600,
     "startIso": "2026-09-25T12:00:00+00:00",
     "durata": 5400,
-    "risultatiFerrari": [],
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "2"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "6"
+      }
+    ],
     "destinazione": {
       "tipo": "sito",
       "servizio": "Sky Sport F1",
@@ -1088,7 +1107,16 @@
     "startTimestamp": 1790420400,
     "startIso": "2026-09-26T11:00:00+00:00",
     "durata": 7200,
-    "risultatiFerrari": [],
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "4"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "6"
+      }
+    ],
     "destinazione": {
       "tipo": "sito",
       "servizio": "Sky Sport F1",
@@ -1108,7 +1136,16 @@
     "startTimestamp": 1791014400,
     "startIso": "2026-10-03T08:00:00+00:00",
     "durata": 5400,
-    "risultatiFerrari": [],
+    "risultatiFerrari": [
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "2"
+      },
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "5"
+      }
+    ],
     "destinazione": {
       "tipo": "sito",
       "servizio": "Sky Sport F1",
@@ -1128,7 +1165,16 @@
     "startTimestamp": 1791097200,
     "startIso": "2026-10-04T07:00:00+00:00",
     "durata": 7200,
-    "risultatiFerrari": [],
+    "risultatiFerrari": [
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "3"
+      },
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "4"
+      }
+    ],
     "destinazione": {
       "tipo": "sito",
       "servizio": "Sky Sport F1",

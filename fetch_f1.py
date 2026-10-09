@@ -37,15 +37,8 @@ def combina_data_ora(date_str, time_str):
         return None
 
 
-def fetch_risultati_ferrari(round_number, sessione, estrai_griglia=False):
-    """
-    Scarica i risultati Ferrari per una sessione.
-
-    estrai_griglia: se True, aggiunge anche il campo 'griglia' a ogni pilota.
-                    Serve per ricavare la posizione di partenza della Sprint
-                    (che è il risultato della Qualifica Sprint) dai risultati
-                    della Sprint stessa.
-    """
+def fetch_risultati_ferrari(round_number, sessione):
+    """Scarica i risultati Ferrari per una sessione."""
     url = f"{BASE_URL}/{ANNO}/{round_number}/constructors/ferrari/{sessione}/"
     try:
         r = requests.get(url, headers=HEADERS, timeout=10)
@@ -66,13 +59,10 @@ def fetch_risultati_ferrari(round_number, sessione, estrai_griglia=False):
         out = []
         for res in risultati:
             driver = res.get("Driver", {})
-            voce = {
+            out.append({
                 "pilota": f"{driver.get('givenName', '')} {driver.get('familyName', '')}".strip(),
                 "posizione": res.get("position", ""),
-            }
-            if estrai_griglia:
-                voce["griglia"] = res.get("grid", "")
-            out.append(voce)
+            })
         return out
     except Exception as e:
         print(f"⚠️ Errore risultati Ferrari round {round_number} ({sessione}): {e}")
@@ -81,7 +71,7 @@ def fetch_risultati_ferrari(round_number, sessione, estrai_griglia=False):
 
 def aggiungi_sessione(sessioni, race, circuit, round_number, race_name,
                       nome_sessione, data_str, ora_str, durata,
-                      endpoint_risultati, adesso, estrai_griglia=False):
+                      endpoint_risultati, adesso):
     """Helper per aggiungere una sessione alla lista."""
     dt = combina_data_ora(data_str, ora_str)
     if not dt:
@@ -90,8 +80,7 @@ def aggiungi_sessione(sessioni, race, circuit, round_number, race_name,
 
     risultati = []
     if ts <= adesso.timestamp() and endpoint_risultati:
-        risultati = fetch_risultati_ferrari(round_number, endpoint_risultati,
-                                            estrai_griglia=estrai_griglia)
+        risultati = fetch_risultati_ferrari(round_number, endpoint_risultati)
 
     sessioni.append({
         "tipo": "f1",
@@ -149,13 +138,12 @@ def fetch_f1():
             DURATA_QUALIFICA, "qualifying", adesso
         )
 
-        # --- Sprint (con griglia di partenza dalla Qualifica Sprint) ---
+        # --- Sprint ---
         sprint = race.get("Sprint", {})
         aggiungi_sessione(
             sessioni, race, circuit, round_number, race_name,
             "Sprint", sprint.get("date"), sprint.get("time", "00:00:00Z"),
-            DURATA_SPRINT, "sprint", adesso,
-            estrai_griglia=True
+            DURATA_SPRINT, "sprint", adesso
         )
 
         # --- Qualifica Sprint (sessione informativa, senza risultati) ---

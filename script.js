@@ -32,12 +32,9 @@ function formattaCountdown(tsMs) {
   const m = Math.floor((diff / (1000 * 60)) % 60);
   const s = Math.floor((diff / 1000) % 60);
 
-  // Se manca almeno 1 giorno: niente secondi
   if (g > 0) {
     return `${g}g ${String(h).padStart(2, "0")}h ${String(m).padStart(2, "0")}m`;
   }
-
-  // Sotto le 24 ore: ore + minuti + secondi
   return `${String(h).padStart(2, "0")}h ${String(m).padStart(2, "0")}m ${String(s).padStart(2, "0")}s`;
 }
 
@@ -55,9 +52,7 @@ function formattaDataOra(tsSecondi) {
     minute: "2-digit",
   });
 
-  // "sabato 10 ottobre" → "Sabato 10 ottobre"
   const dataCap = dataStr.charAt(0).toUpperCase() + dataStr.slice(1);
-
   return `${dataCap} ${oraStr}`;
 }
 
@@ -93,16 +88,20 @@ async function init() {
     }
 
     // --- F1: ultima sessione conclusa CON risultati Ferrari disponibili ---
-    // (per mostrare "Ultimi risultati" sotto la card)
+    // Mostrata SOLO se appartiene allo stesso round della sessione corrente.
     let ultimiRisultatiF1 = null;
-    for (let i = f1.length - 1; i >= 0; i--) {
-      const s = f1[i];
-      const durata = s.durata || 2 * 60 * 60;
-      // Deve essere conclusa (inizio + durata < adesso) e avere risultati
-      if (s.startTimestamp + durata < adessoSecondi &&
-          s.risultatiFerrari && s.risultatiFerrari.length > 0) {
-        ultimiRisultatiF1 = s;
-        break;
+    if (daMostrareF1) {
+      for (let i = f1.length - 1; i >= 0; i--) {
+        const s = f1[i];
+        const durata = s.durata || 2 * 60 * 60;
+        const conclusa = s.startTimestamp + durata < adessoSecondi;
+        const haRisultati = s.risultatiFerrari && s.risultatiFerrari.length > 0;
+        const stessoRound = s.round === daMostrareF1.round;
+
+        if (conclusa && haRisultati && stessoRound) {
+          ultimiRisultatiF1 = s;
+          break;
+        }
       }
     }
 
@@ -178,15 +177,13 @@ function renderCardInter(p) {
 // RENDER CARD F1
 // =====================================================
 function renderCardF1(s, ultimiRisultati) {
-  // Blocco risultati: se la sessione corrente ha risultati, li mostra.
-  // Altrimenti, se c'è un "ultima sessione con risultati", la mostra.
   let risultatiHtml = "";
 
+  // Caso A: la sessione mostrata ha già i suoi risultati (es. gara appena finita)
   if (s.risultatiFerrari && s.risultatiFerrari.length > 0) {
-    // La sessione mostrata ha già i risultati (es. gara appena finita)
     risultatiHtml = `
       <div class="f1-risultati">
-        <div class="f1-risultati-titolo">Ferrari</div>
+        <div class="f1-risultati-titolo">Risultato ${s.sessione}</div>
         ${s.risultatiFerrari.map(f => `
           <div class="ferrari-row">
             <span>${f.pilota}</span>
@@ -195,12 +192,15 @@ function renderCardF1(s, ultimiRisultati) {
         `).join("")}
       </div>
     `;
-  } else if (ultimiRisultati) {
-    // La sessione mostrata non ha risultati: mostriamo quelli dell'ultima
-    // sessione conclusa, con un titolo che indica di quale sessione si tratta
+  }
+  // Caso B: la sessione mostrata non ha risultati, ma esiste un'ultima
+  // sessione dello stesso round che li ha → mostrala in una sub-card
+  else if (ultimiRisultati) {
     risultatiHtml = `
       <div class="f1-risultati">
-        <div class="f1-risultati-titolo">
+        <div class="f1-risultati-titolo">Ultimi risultati</div>
+        <div class="f1-risultati-sessione">
+          <span class="f1-risultati-dot"></span>
           ${ultimiRisultati.sessione} · ${ultimiRisultati.gp}
         </div>
         ${ultimiRisultati.risultatiFerrari.map(f => `
@@ -243,14 +243,12 @@ function avviaTuttiCountdown() {
     const adesso = Date.now();
     const elementi = Array.from(document.querySelectorAll("[data-ts]"));
 
-    // Quanti eventi sono in corso in questo momento?
     const eventiInCorso = elementi.filter(el => {
       const ts = parseInt(el.dataset.ts, 10) * 1000;
       const durata = parseInt(el.dataset.durata, 10) * 1000;
       return adesso >= ts && adesso < ts + durata;
     });
 
-    // Se ci sono 2+ eventi in corso, marca TUTTI come "no redirect auto"
     if (eventiInCorso.length > 1) {
       eventiInCorso.forEach(e => {
         e.dataset.noAutoRedirect = "true";
@@ -266,13 +264,9 @@ function avviaTuttiCountdown() {
       const statoPrecedente = statoElementi.get(el) || "";
 
       if (diff > 0) {
-        // ---- In attesa ----
         el.textContent = formattaCountdown(ts);
         statoElementi.set(el, "attesa");
-
       } else if (adesso < ts + durata) {
-        // ---- In corso ----
-
         const puoRedirectAuto = (
           eventiInCorso.length === 1 &&
           !noAuto &&
@@ -300,9 +294,7 @@ function avviaTuttiCountdown() {
             statoElementi.set(el, "in-corso");
           }
         }
-
       } else {
-        // ---- Terminato ----
         if (statoPrecedente !== "terminato") {
           el.textContent = "terminato";
           statoElementi.set(el, "terminato");

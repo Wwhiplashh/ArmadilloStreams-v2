@@ -14,6 +14,9 @@ DURATA_SPRINT = 60 * 60
 DURATA_GARA = 2 * 60 * 60
 DURATA_QUALIFICA_SPRINT = 60 * 60
 
+# Piloti Ferrari (driverId su Jolpica/Ergast)
+FERRARI_DRIVER_IDS = {"leclerc", "hamilton"}
+
 
 def determina_destinazione_f1():
     return {
@@ -38,11 +41,16 @@ def combina_data_ora(date_str, time_str):
 
 
 def fetch_risultati_ferrari(round_number, sessione):
-    """Scarica i risultati Ferrari per una sessione."""
-    url = f"{BASE_URL}/{ANNO}/{round_number}/constructors/ferrari/{sessione}/"
+    """
+    Scarica i risultati Ferrari per una sessione.
+    Chiama l'endpoint senza filtro costruttore e filtra i piloti Ferrari in Python
+    (il filtro 'constructors/ferrari' su Jolpica a volte restituisce vuoto).
+    """
+    url = f"{BASE_URL}/{ANNO}/{round_number}/{sessione}/"
     try:
         r = requests.get(url, headers=HEADERS, timeout=10)
         if r.status_code != 200:
+            print(f"⚠️ HTTP {r.status_code} per {sessione} round {round_number}")
             return []
         data = r.json()
         races = data.get("MRData", {}).get("RaceTable", {}).get("Races", [])
@@ -55,14 +63,16 @@ def fetch_risultati_ferrari(round_number, sessione):
             "results": "Results",
         }.get(sessione, "Results")
 
-        risultati = races[0].get(campo, [])
+        tutti = races[0].get(campo, [])
         out = []
-        for res in risultati:
+        for res in tutti:
             driver = res.get("Driver", {})
-            out.append({
-                "pilota": f"{driver.get('givenName', '')} {driver.get('familyName', '')}".strip(),
-                "posizione": res.get("position", ""),
-            })
+            driver_id = driver.get("driverId", "").lower()
+            if driver_id in FERRARI_DRIVER_IDS:
+                out.append({
+                    "pilota": f"{driver.get('givenName', '')} {driver.get('familyName', '')}".strip(),
+                    "posizione": res.get("position", ""),
+                })
         return out
     except Exception as e:
         print(f"⚠️ Errore risultati Ferrari round {round_number} ({sessione}): {e}")

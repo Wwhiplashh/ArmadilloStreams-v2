@@ -92,6 +92,20 @@ async function init() {
       daMostrareF1 = f1.find(s => s.startTimestamp > adessoSecondi);
     }
 
+    // --- F1: ultima sessione conclusa CON risultati Ferrari disponibili ---
+    // (per mostrare "Ultimi risultati" sotto la card)
+    let ultimiRisultatiF1 = null;
+    for (let i = f1.length - 1; i >= 0; i--) {
+      const s = f1[i];
+      const durata = s.durata || 2 * 60 * 60;
+      // Deve essere conclusa (inizio + durata < adesso) e avere risultati
+      if (s.startTimestamp + durata < adessoSecondi &&
+          s.risultatiFerrari && s.risultatiFerrari.length > 0) {
+        ultimiRisultatiF1 = s;
+        break;
+      }
+    }
+
     // --- Rendering card Inter ---
     if (daMostrareInter) {
       elCardInter.innerHTML = renderCardInter(daMostrareInter);
@@ -101,7 +115,7 @@ async function init() {
 
     // --- Rendering card F1 ---
     if (daMostrareF1) {
-      elCardF1.innerHTML = renderCardF1(daMostrareF1);
+      elCardF1.innerHTML = renderCardF1(daMostrareF1, ultimiRisultatiF1);
     } else {
       elCardF1.innerHTML = `<p class="nota info">Nessuna sessione in programma</p>`;
     }
@@ -163,13 +177,33 @@ function renderCardInter(p) {
 // =====================================================
 // RENDER CARD F1
 // =====================================================
-function renderCardF1(s) {
+function renderCardF1(s, ultimiRisultati) {
+  // Blocco risultati: se la sessione corrente ha risultati, li mostra.
+  // Altrimenti, se c'è un "ultima sessione con risultati", la mostra.
   let risultatiHtml = "";
+
   if (s.risultatiFerrari && s.risultatiFerrari.length > 0) {
+    // La sessione mostrata ha già i risultati (es. gara appena finita)
     risultatiHtml = `
       <div class="f1-risultati">
         <div class="f1-risultati-titolo">Ferrari</div>
         ${s.risultatiFerrari.map(f => `
+          <div class="ferrari-row">
+            <span>${f.pilota}</span>
+            <span class="pos">P${f.posizione}</span>
+          </div>
+        `).join("")}
+      </div>
+    `;
+  } else if (ultimiRisultati) {
+    // La sessione mostrata non ha risultati: mostriamo quelli dell'ultima
+    // sessione conclusa, con un titolo che indica di quale sessione si tratta
+    risultatiHtml = `
+      <div class="f1-risultati">
+        <div class="f1-risultati-titolo">
+          ${ultimiRisultati.sessione} · ${ultimiRisultati.gp}
+        </div>
+        ${ultimiRisultati.risultatiFerrari.map(f => `
           <div class="ferrari-row">
             <span>${f.pilota}</span>
             <span class="pos">P${f.posizione}</span>

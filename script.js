@@ -21,6 +21,40 @@ const statoElementi = new WeakMap();
 let redirectEffettuato = false;
 
 // =====================================================
+// SPLASH SCREEN
+// =====================================================
+function avviaBarraCaricamento() {
+  // Porta la barra all'80% con una transizione lunga, "a caso"
+  const bar = document.getElementById("splash-bar-fill");
+  if (!bar) return;
+  setTimeout(() => {
+    bar.style.transition = "width 1.8s cubic-bezier(0.4, 0, 0.2, 1)";
+    bar.style.width = "80%";
+  }, 100);
+}
+
+function chiudiSplash() {
+  const splash = document.getElementById("splash");
+  const bar = document.getElementById("splash-bar-fill");
+  if (!splash || splash.classList.contains("exit")) return;
+
+  // Completa la barra al 100% (transizione veloce)
+  if (bar) {
+    bar.style.transition = "width 0.4s ease";
+    bar.style.width = "100%";
+  }
+
+  // Dopo che la barra è arrivata al 100%, avvia l'animazione di uscita
+  setTimeout(() => {
+    splash.classList.add("exit");
+    // Rimuovi lo splash dal flusso dopo la durata dell'animazione
+    setTimeout(() => {
+      splash.style.display = "none";
+    }, 1200);
+  }, 500);
+}
+
+// =====================================================
 // UTILS
 // =====================================================
 function formattaCountdown(tsMs) {
@@ -60,6 +94,9 @@ function formattaDataOra(tsSecondi) {
 // INIT
 // =====================================================
 async function init() {
+  // Fai partire subito l'animazione della barra di caricamento
+  avviaBarraCaricamento();
+
   try {
     const [calcio, f1] = await Promise.all([
       fetch("calendar.json?t=" + Date.now()).then(r => r.json()),
@@ -87,8 +124,7 @@ async function init() {
       daMostrareF1 = f1.find(s => s.startTimestamp > adessoSecondi);
     }
 
-    // --- F1: ultima sessione conclusa CON risultati Ferrari disponibili ---
-    // Mostrata SOLO se appartiene allo stesso round della sessione corrente.
+    // --- F1: ultima sessione conclusa CON risultati Ferrari, stesso round ---
     let ultimiRisultatiF1 = null;
     if (daMostrareF1) {
       for (let i = f1.length - 1; i >= 0; i--) {
@@ -124,11 +160,17 @@ async function init() {
 
     avviaTuttiCountdown();
 
+    // Chiudi la splash screen
+    chiudiSplash();
+
   } catch (err) {
     console.error(err);
     elStato.hidden = true;
     elErrore.hidden = false;
     elErrDettaglio.textContent = err.message;
+
+    // Chiudi comunque la splash, così l'utente vede l'errore
+    chiudiSplash();
   }
 }
 
@@ -179,7 +221,6 @@ function renderCardInter(p) {
 function renderCardF1(s, ultimiRisultati) {
   let risultatiHtml = "";
 
-  // Caso A: la sessione mostrata ha già i suoi risultati (es. gara appena finita)
   if (s.risultatiFerrari && s.risultatiFerrari.length > 0) {
     risultatiHtml = `
       <div class="f1-risultati">
@@ -192,10 +233,7 @@ function renderCardF1(s, ultimiRisultati) {
         `).join("")}
       </div>
     `;
-  }
-  // Caso B: la sessione mostrata non ha risultati, ma esiste un'ultima
-  // sessione dello stesso round che li ha → mostrala in una sub-card
-  else if (ultimiRisultati) {
+  } else if (ultimiRisultati) {
     risultatiHtml = `
       <div class="f1-risultati">
         <div class="f1-risultati-titolo">Ultimi risultati</div>

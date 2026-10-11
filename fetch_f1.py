@@ -1,5 +1,6 @@
 from datetime import datetime, timezone
 import json
+import time
 import requests
 
 HEADERS = {"User-Agent": "InterNextMatch/1.0"}
@@ -16,6 +17,10 @@ DURATA_QUALIFICA_SPRINT = 60 * 60
 
 # Piloti Ferrari (driverId su Jolpica/Ergast)
 FERRARI_DRIVER_IDS = {"leclerc", "hamilton"}
+
+# Rate limit: Jolpica consente ~4 richieste/secondo.
+# Mettiamo un delay prudenziale tra le richieste consecutive.
+DELAY_TRA_RICHIESTE = 0.4
 
 
 def determina_destinazione_f1():
@@ -40,43 +45,63 @@ def combina_data_ora(date_str, time_str):
         return None
 
 
+def richiedi_json(url, max_tentativi=4):
+    """
+    Esegue una GET con retry automatico su 429 (rate limit).
+    Aspetta sempre DELAY_TRA_RICHIESTE prima di ogni chiamata per non
+    superare il rate limit di Jolpica.
+    """
+    for tentativo in range(1, max_tentativi + 1):
+        time.sleep(DELAY_TRA_RICHIESTE)
+        try:
+            r = requests.get(url, headers=HEADERS, timeout=15)
+            if r.status_code == 429:
+                attesa = 3 * tentativo
+                print(f"⚠️ 429 (tentativo {tentativo}/{max_tentativi}), attendo {attesa}s...")
+                time.sleep(attesa)
+                continue
+            if r.status_code != 200:
+                print(f"⚠️ HTTP {r.status_code}: {url}")
+                return None
+            return r.json()
+        except requests.RequestException as e:
+            print(f"⚠️ Tentativo {tentativo}/{max_tentativi} fallito: {e}")
+            time.sleep(2)
+    print(f"❌ Tutti i tentativi falliti: {url}")
+    return None
+
+
 def fetch_risultati_ferrari(round_number, sessione):
     """
     Scarica i risultati Ferrari per una sessione.
-    Chiama l'endpoint senza filtro costruttore e filtra i piloti Ferrari in Python
-    (il filtro 'constructors/ferrari' su Jolpica a volte restituisce vuoto).
+    Chiama l'endpoint senza filtro costruttore e filtra i piloti Ferrari in Python.
     """
     url = f"{BASE_URL}/{ANNO}/{round_number}/{sessione}/"
-    try:
-        r = requests.get(url, headers=HEADERS, timeout=10)
-        if r.status_code != 200:
-            print(f"⚠️ HTTP {r.status_code} per {sessione} round {round_number}")
-            return []
-        data = r.json()
-        races = data.get("MRData", {}).get("RaceTable", {}).get("Races", [])
-        if not races:
-            return []
-
-        campo = {
-            "qualifying": "QualifyingResults",
-            "sprint": "SprintResults",
-            "results": "Results",
-        }.get(sessione, "Results")
-
-        tutti = races[0].get(campo, [])
-        out = []
-        for res in tutti:
-            driver = res.get("Driver", {})
-            driver_id = driver.get("driverId", "").lower()
-            if driver_id in FERRARI_DRIVER_IDS:
-                out.append({
-                    "pilota": f"{driver.get('givenName', '')} {driver.get('familyName', '')}".strip(),
-                    "posizione": res.get("position", ""),
-                })
-        return out
-    except Exception as e:
-        print(f"⚠️ Errore risultati Ferrari round {round_number} ({sessione}): {e}")
+    data = richiedi_json(url)
+    if not data:
         return []
+
+    races = data.get("MRData", {}).get("RaceTable", {}).get("Races", [])
+    if not races:
+        return []
+
+    campo = {
+        "qualifying": "QualifyingResults",
+        "sprint": "SprintResults",
+        "results": "Results",
+    }.get(sessione, "Results")
+
+    tutti = races[0].get(campo, [])
+    out = []
+    for res in tutti:
+        driver = res.get("Driver", {})
+        driver_id = driver.get("driverId", "").lower()
+        if driver_id in FERRARI_DRIVER_IDS:
+            out.append({
+                "pilota": f"{driver.get('givenName', '')} {driver.get('familyName', '')}".strip(),
+                "posizione": res.get("position", ""),
+            })
+    return out
 
 
 def aggiungi_sessione(sessioni, race, circuit, round_number, race_name,
@@ -111,17 +136,11 @@ def aggiungi_sessione(sessioni, race, circuit, round_number, race_name,
 
 def fetch_f1():
     url = f"{BASE_URL}/{ANNO}/races/"
-    try:
-        r = requests.get(url, headers=HEADERS, timeout=15)
-    except requests.RequestException as e:
-        print(f"❌ Errore di connessione: {e}")
+    data = richiedi_json(url)
+    if not data:
+        print("❌ Impossibile scaricare il calendario F1.")
         return
 
-    if r.status_code != 200:
-        print(f"❌ Errore HTTP {r.status_code}: {r.text[:200]}")
-        return
-
-    data = r.json()
     races = data.get("MRData", {}).get("RaceTable", {}).get("Races", [])
     print(f"ℹ️ Round F1 trovati: {len(races)}")
 

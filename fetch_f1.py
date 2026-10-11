@@ -19,7 +19,6 @@ DURATA_QUALIFICA_SPRINT = 60 * 60
 FERRARI_DRIVER_IDS = {"leclerc", "hamilton"}
 
 # Rate limit: Jolpica consente ~4 richieste/secondo.
-# Mettiamo un delay prudenziale tra le richieste consecutive.
 DELAY_TRA_RICHIESTE = 0.4
 
 
@@ -46,11 +45,7 @@ def combina_data_ora(date_str, time_str):
 
 
 def richiedi_json(url, max_tentativi=4):
-    """
-    Esegue una GET con retry automatico su 429 (rate limit).
-    Aspetta sempre DELAY_TRA_RICHIESTE prima di ogni chiamata per non
-    superare il rate limit di Jolpica.
-    """
+    """GET con retry su 429 e delay tra le richieste."""
     for tentativo in range(1, max_tentativi + 1):
         time.sleep(DELAY_TRA_RICHIESTE)
         try:
@@ -72,17 +67,17 @@ def richiedi_json(url, max_tentativi=4):
 
 
 def fetch_risultati_ferrari(round_number, sessione):
-    """
-    Scarica i risultati Ferrari per una sessione.
-    Chiama l'endpoint senza filtro costruttore e filtra i piloti Ferrari in Python.
-    """
+    """Scarica e filtra i risultati Ferrari per una sessione."""
     url = f"{BASE_URL}/{ANNO}/{round_number}/{sessione}/"
+    print(f"🔍 DEBUG: chiamo {url}")
     data = richiedi_json(url)
     if not data:
+        print(f"🔍 DEBUG: nessun dato per round {round_number} {sessione}")
         return []
 
     races = data.get("MRData", {}).get("RaceTable", {}).get("Races", [])
     if not races:
+        print(f"🔍 DEBUG: races vuoto per round {round_number} {sessione}")
         return []
 
     campo = {
@@ -92,6 +87,8 @@ def fetch_risultati_ferrari(round_number, sessione):
     }.get(sessione, "Results")
 
     tutti = races[0].get(campo, [])
+    print(f"🔍 DEBUG: round {round_number} {sessione}, {len(tutti)} risultati totali")
+
     out = []
     for res in tutti:
         driver = res.get("Driver", {})
@@ -101,6 +98,7 @@ def fetch_risultati_ferrari(round_number, sessione):
                 "pilota": f"{driver.get('givenName', '')} {driver.get('familyName', '')}".strip(),
                 "posizione": res.get("position", ""),
             })
+    print(f"🔍 DEBUG: round {round_number} {sessione}, {len(out)} piloti Ferrari trovati")
     return out
 
 
@@ -114,8 +112,12 @@ def aggiungi_sessione(sessioni, race, circuit, round_number, race_name,
     ts = int(dt.timestamp())
 
     risultati = []
-    if ts <= adesso.timestamp() and endpoint_risultati:
-        risultati = fetch_risultati_ferrari(round_number, endpoint_risultati)
+    if endpoint_risultati:
+        if ts <= adesso.timestamp():
+            print(f"🔍 DEBUG: {nome_sessione} round {round_number} è passata, scarico risultati")
+            risultati = fetch_risultati_ferrari(round_number, endpoint_risultati)
+        else:
+            print(f"🔍 DEBUG: {nome_sessione} round {round_number} è futura, salto")
 
     sessioni.append({
         "tipo": "f1",
@@ -145,6 +147,8 @@ def fetch_f1():
     print(f"ℹ️ Round F1 trovati: {len(races)}")
 
     adesso = datetime.now(timezone.utc)
+    print(f"🕐 DEBUG: adesso = {adesso.isoformat()} (timestamp {int(adesso.timestamp())})")
+
     sessioni = []
 
     for race in races:

@@ -1188,7 +1188,7 @@
     "destinazione": {
       "tipo": "sito",
       "servizio": "Sky Sport F1",
-      "url": "https://dlive.sx/stream/stream-577.php",
+      "url": "https://tuo-sito.example/f1",
       "messaggio": ""
     }
   },
@@ -1262,7 +1262,16 @@
     "startTimestamp": 1791720000,
     "startIso": "2026-10-11T12:00:00+00:00",
     "durata": 7200,
-    "risultatiFerrari": [],
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "2"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "6"
+      }
+    ],
     "destinazione": {
       "tipo": "sito",
       "servizio": "Sky Sport F1",
@@ -1282,14 +1291,7 @@
     "startTimestamp": 1792875600,
     "startIso": "2026-10-24T21:00:00+00:00",
     "durata": 5400,
-       "risultatiFerrari": [
-      {
-        "pilota": "Charles Leclerc",
-        "posizione": "2"
-      },
-      {
-        "pilota": "Lewis Hamilton",
-        "posizione": "3"
+    "risultatiFerrari": [],
     "destinazione": {
       "tipo": "sito",
       "servizio": "Sky Sport F1",

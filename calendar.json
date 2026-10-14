@@ -1,20 +1,5 @@
 [
   {
-    "startTimestamp": 1791918000,
-    "startIso": "2026-10-13T19:00:00+00:00",
-    "home_team": "Inter",
-    "away_team": "Club Brugge KV",
-    "home_logo": "logos/team_2697.png",
-    "away_logo": "logos/team_2888.png",
-    "competizione": "UEFA Champions League",
-    "destinazione": {
-      "tipo": "sito",
-      "servizio": "Sky Sport Uno",
-      "url": "https://tuo-sito.example/champions",
-      "messaggio": ""
-    }
-  },
-  {
     "startTimestamp": 1792252800,
     "startIso": "2026-10-17T16:00:00+00:00",
     "home_team": "Bologna",
@@ -440,6 +425,21 @@
     "home_team": "Udinese",
     "away_team": "Inter",
     "home_logo": "logos/team_2695.png",
+    "away_logo": "logos/team_2697.png",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1804942800,
+    "startIso": "2027-03-13T13:00:00+00:00",
+    "home_team": "Torino",
+    "away_team": "Inter",
+    "home_logo": "logos/team_2696.png",
     "away_logo": "logos/team_2697.png",
     "competizione": "Serie A",
     "destinazione": {

@@ -1,20 +1,5 @@
 [
   {
-    "startTimestamp": 1792252800,
-    "startIso": "2026-10-17T16:00:00+00:00",
-    "home_team": "Bologna",
-    "away_team": "Inter",
-    "home_logo": "logos/team_2685.png",
-    "away_logo": "logos/team_2697.png",
-    "competizione": "Serie A",
-    "destinazione": {
-      "tipo": "sito",
-      "servizio": "DAZN",
-      "url": "https://tuo-sito.example/serie-a",
-      "messaggio": ""
-    }
-  },
-  {
     "startTimestamp": 1792609200,
     "startIso": "2026-10-21T19:00:00+00:00",
     "home_team": "Inter",
@@ -441,6 +426,21 @@
     "away_team": "Inter",
     "home_logo": "logos/team_2696.png",
     "away_logo": "logos/team_2697.png",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1805547600,
+    "startIso": "2027-03-20T13:00:00+00:00",
+    "home_team": "Inter",
+    "away_team": "Frosinone",
+    "home_logo": "logos/team_2697.png",
+    "away_logo": "logos/team_2801.png",
     "competizione": "Serie A",
     "destinazione": {
       "tipo": "sito",

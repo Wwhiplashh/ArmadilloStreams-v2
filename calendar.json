@@ -180,8 +180,8 @@
     }
   },
   {
-    "startTimestamp": 1797080400,
-    "startIso": "2026-12-12T13:00:00+00:00",
+    "startTimestamp": 1797170400,
+    "startIso": "2026-12-13T14:00:00+00:00",
     "home_team": "Inter",
     "away_team": "Torino",
     "home_logo": "logos/team_2697.png",
@@ -195,8 +195,8 @@
     }
   },
   {
-    "startTimestamp": 1797685200,
-    "startIso": "2026-12-19T13:00:00+00:00",
+    "startTimestamp": 1797623100,
+    "startIso": "2026-12-18T19:45:00+00:00",
     "home_team": "Lecce",
     "away_team": "Inter",
     "home_logo": "logos/team_2689.png",
@@ -240,8 +240,8 @@
     }
   },
   {
-    "startTimestamp": 1799154000,
-    "startIso": "2027-01-05T13:00:00+00:00",
+    "startTimestamp": 1799264700,
+    "startIso": "2027-01-06T19:45:00+00:00",
     "home_team": "Lazio",
     "away_team": "Inter",
     "home_logo": "logos/team_2699.png",
@@ -255,8 +255,8 @@
     }
   },
   {
-    "startTimestamp": 1799499600,
-    "startIso": "2027-01-09T13:00:00+00:00",
+    "startTimestamp": 1799610300,
+    "startIso": "2027-01-10T19:45:00+00:00",
     "home_team": "Inter",
     "away_team": "Juventus",
     "home_logo": "logos/team_2697.png",

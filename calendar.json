@@ -1,20 +1,5 @@
 [
   {
-    "startTimestamp": 1792609200,
-    "startIso": "2026-10-21T19:00:00+00:00",
-    "home_team": "Inter",
-    "away_team": "Shakhtar Donetsk",
-    "home_logo": "logos/team_2697.png",
-    "away_logo": "logos/team_3313.png",
-    "competizione": "UEFA Champions League",
-    "destinazione": {
-      "tipo": "esterno",
-      "servizio": "Prime Video",
-      "url": "",
-      "messaggio": "Esclusiva Prime Video: non sarà trasmessa sul nostro sito"
-    }
-  },
-  {
     "startTimestamp": 1792927800,
     "startIso": "2026-10-25T11:30:00+00:00",
     "home_team": "Inter",
@@ -441,6 +426,21 @@
     "away_team": "Frosinone",
     "home_logo": "logos/team_2697.png",
     "away_logo": "logos/team_2801.png",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1806757200,
+    "startIso": "2027-04-03T13:00:00+00:00",
+    "home_team": "Genoa",
+    "away_team": "Inter",
+    "home_logo": "logos/team_2713.png",
+    "away_logo": "logos/team_2697.png",
     "competizione": "Serie A",
     "destinazione": {
       "tipo": "sito",

@@ -195,8 +195,8 @@
     }
   },
   {
-    "startTimestamp": 1800104400,
-    "startIso": "2027-01-16T13:00:00+00:00",
+    "startTimestamp": 1800190800,
+    "startIso": "2027-01-17T13:00:00+00:00",
     "home_team": "Parma",
     "away_team": "Inter",
     "home_logo": "logos/team_2690.png",
@@ -225,8 +225,8 @@
     }
   },
   {
-    "startTimestamp": 1800709200,
-    "startIso": "2027-01-23T13:00:00+00:00",
+    "startTimestamp": 1800795600,
+    "startIso": "2027-01-24T13:00:00+00:00",
     "home_team": "Inter",
     "away_team": "Venezia",
     "home_logo": "logos/team_2697.png",
@@ -255,8 +255,8 @@
     }
   },
   {
-    "startTimestamp": 1801314000,
-    "startIso": "2027-01-30T13:00:00+00:00",
+    "startTimestamp": 1801400400,
+    "startIso": "2027-01-31T13:00:00+00:00",
     "home_team": "SSC Napoli",
     "away_team": "Inter",
     "home_logo": "logos/team_2714.png",
@@ -270,8 +270,8 @@
     }
   },
   {
-    "startTimestamp": 1801918800,
-    "startIso": "2027-02-06T13:00:00+00:00",
+    "startTimestamp": 1802005200,
+    "startIso": "2027-02-07T13:00:00+00:00",
     "home_team": "Inter",
     "away_team": "Cagliari",
     "home_logo": "logos/team_2697.png",
@@ -285,8 +285,8 @@
     }
   },
   {
-    "startTimestamp": 1802523600,
-    "startIso": "2027-02-13T13:00:00+00:00",
+    "startTimestamp": 1802610000,
+    "startIso": "2027-02-14T13:00:00+00:00",
     "home_team": "Inter",
     "away_team": "AC Milan",
     "home_logo": "logos/team_2697.png",
@@ -300,8 +300,8 @@
     }
   },
   {
-    "startTimestamp": 1803128400,
-    "startIso": "2027-02-20T13:00:00+00:00",
+    "startTimestamp": 1803214800,
+    "startIso": "2027-02-21T13:00:00+00:00",
     "home_team": "Fiorentina",
     "away_team": "Inter",
     "home_logo": "logos/team_2693.png",
@@ -315,8 +315,8 @@
     }
   },
   {
-    "startTimestamp": 1803733200,
-    "startIso": "2027-02-27T13:00:00+00:00",
+    "startTimestamp": 1803819600,
+    "startIso": "2027-02-28T13:00:00+00:00",
     "home_team": "Inter",
     "away_team": "Atalanta",
     "home_logo": "logos/team_2697.png",
@@ -345,8 +345,8 @@
     }
   },
   {
-    "startTimestamp": 1804942800,
-    "startIso": "2027-03-13T13:00:00+00:00",
+    "startTimestamp": 1805029200,
+    "startIso": "2027-03-14T13:00:00+00:00",
     "home_team": "Torino",
     "away_team": "Inter",
     "home_logo": "logos/team_2696.png",
@@ -360,8 +360,8 @@
     }
   },
   {
-    "startTimestamp": 1805547600,
-    "startIso": "2027-03-20T13:00:00+00:00",
+    "startTimestamp": 1805634000,
+    "startIso": "2027-03-21T13:00:00+00:00",
     "home_team": "Inter",
     "away_team": "Frosinone",
     "home_logo": "logos/team_2697.png",
@@ -375,8 +375,8 @@
     }
   },
   {
-    "startTimestamp": 1806757200,
-    "startIso": "2027-04-03T13:00:00+00:00",
+    "startTimestamp": 1806843600,
+    "startIso": "2027-04-04T13:00:00+00:00",
     "home_team": "Genoa",
     "away_team": "Inter",
     "home_logo": "logos/team_2713.png",
@@ -390,8 +390,8 @@
     }
   },
   {
-    "startTimestamp": 1807362000,
-    "startIso": "2027-04-10T13:00:00+00:00",
+    "startTimestamp": 1807448400,
+    "startIso": "2027-04-11T13:00:00+00:00",
     "home_team": "Inter",
     "away_team": "AS Roma",
     "home_logo": "logos/team_2697.png",
@@ -405,8 +405,8 @@
     }
   },
   {
-    "startTimestamp": 1807966800,
-    "startIso": "2027-04-17T13:00:00+00:00",
+    "startTimestamp": 1808053200,
+    "startIso": "2027-04-18T13:00:00+00:00",
     "home_team": "Monza",
     "away_team": "Inter",
     "home_logo": "logos/team_2729.png",

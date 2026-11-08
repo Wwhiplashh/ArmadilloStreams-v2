@@ -1407,7 +1407,16 @@
     "startTimestamp": 1794074400,
     "startIso": "2026-11-07T18:00:00+00:00",
     "durata": 5400,
-    "risultatiFerrari": [],
+    "risultatiFerrari": [
+      {
+        "pilota": "Charles Leclerc",
+        "posizione": "4"
+      },
+      {
+        "pilota": "Lewis Hamilton",
+        "posizione": "11"
+      }
+    ],
     "destinazione": {
       "tipo": "sito",
       "servizio": "Sky Sport F1",

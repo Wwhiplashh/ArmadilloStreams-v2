@@ -330,8 +330,8 @@
     }
   },
   {
-    "startTimestamp": 1804338000,
-    "startIso": "2027-03-06T13:00:00+00:00",
+    "startTimestamp": 1804424400,
+    "startIso": "2027-03-07T13:00:00+00:00",
     "home_team": "Udinese",
     "away_team": "Inter",
     "home_logo": "logos/team_2695.png",
@@ -420,8 +420,8 @@
     }
   },
   {
-    "startTimestamp": 1808571600,
-    "startIso": "2027-04-24T13:00:00+00:00",
+    "startTimestamp": 1808658000,
+    "startIso": "2027-04-25T13:00:00+00:00",
     "home_team": "Inter",
     "away_team": "Bologna",
     "home_logo": "logos/team_2697.png",
@@ -435,8 +435,8 @@
     }
   },
   {
-    "startTimestamp": 1809176400,
-    "startIso": "2027-05-01T13:00:00+00:00",
+    "startTimestamp": 1809262800,
+    "startIso": "2027-05-02T13:00:00+00:00",
     "home_team": "Como",
     "away_team": "Inter",
     "home_logo": "logos/team_2704.png",

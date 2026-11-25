@@ -700,16 +700,7 @@
     "startTimestamp": 1783260000,
     "startIso": "2026-07-05T14:00:00+00:00",
     "durata": 7200,
-    "risultatiFerrari": [
-      {
-        "pilota": "Charles Leclerc",
-        "posizione": "1"
-      },
-      {
-        "pilota": "Lewis Hamilton",
-        "posizione": "3"
-      }
-    ],
+    "risultatiFerrari": [],
     "destinazione": {
       "tipo": "sito",
       "servizio": "Sky Sport F1",
@@ -1320,16 +1311,7 @@
     "startTimestamp": 1792958400,
     "startIso": "2026-10-25T20:00:00+00:00",
     "durata": 7200,
-    "risultatiFerrari": [
-      {
-        "pilota": "Charles Leclerc",
-        "posizione": "2"
-      },
-      {
-        "pilota": "Lewis Hamilton",
-        "posizione": "4"
-      }
-    ],
+    "risultatiFerrari": [],
     "destinazione": {
       "tipo": "sito",
       "servizio": "Sky Sport F1",

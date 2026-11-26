@@ -1,20 +1,5 @@
 [
   {
-    "startTimestamp": 1795636800,
-    "startIso": "2026-11-25T20:00:00+00:00",
-    "home_team": "Inter",
-    "away_team": "VfB Stuttgart",
-    "home_logo": "logos/team_2697.png",
-    "away_logo": "logos/team_2677.png",
-    "competizione": "UEFA Champions League",
-    "destinazione": {
-      "tipo": "esterno",
-      "servizio": "Prime Video",
-      "url": "",
-      "messaggio": "Esclusiva Prime Video: non sarà trasmessa sul nostro sito"
-    }
-  },
-  {
     "startTimestamp": 1795895100,
     "startIso": "2026-11-28T19:45:00+00:00",
     "home_team": "Inter",
@@ -441,6 +426,21 @@
     "away_team": "Inter",
     "home_logo": "logos/team_2687.png",
     "away_logo": "logos/team_2697.png",
+    "competizione": "Serie A",
+    "destinazione": {
+      "tipo": "sito",
+      "servizio": "DAZN",
+      "url": "https://tuo-sito.example/serie-a",
+      "messaggio": ""
+    }
+  },
+  {
+    "startTimestamp": 1811077200,
+    "startIso": "2027-05-23T13:00:00+00:00",
+    "home_team": "Inter",
+    "away_team": "Lazio",
+    "home_logo": "logos/team_2697.png",
+    "away_logo": "logos/team_2699.png",
     "competizione": "Serie A",
     "destinazione": {
       "tipo": "sito",
